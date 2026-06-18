@@ -14,3 +14,9 @@ script = ExtResource("1_7u8xr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1889984678]
 shape = SubResource("RectangleShape2D_doa1l")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=310595212]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
