@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b8l21bdbnta48"]
+
+[ext_resource type="Script" uid="uid://cyemfiits3wsn" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=712893273]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1465177413]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.775002
+anchor_bottom = 16.300001
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = -2.000061
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=847895969]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 212.0
+offset_right = 707.0
+offset_bottom = 425.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1215710992]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "ARCADE//01"
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=622257106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "START"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=117166099]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "QUIT"

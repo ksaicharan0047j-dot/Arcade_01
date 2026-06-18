@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpndoni1h3m5c"]
+
+[ext_resource type="Script" uid="uid://ct2v8xwtfjngk" path="res://scripts/player.gd" id="1_7u8xr"]
+[ext_resource type="Script" uid="uid://damdtgcnfb5kj" path="res://scripts/asteroid_void.gd" id="1_doa1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doa1l"]
+
+[node name="AsteroidVoid" type="Node2D" unique_id=1683339110]
+script = ExtResource("1_doa1l")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=57134695]
+position = Vector2(576, 550)
+script = ExtResource("1_7u8xr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1889984678]
+shape = SubResource("RectangleShape2D_doa1l")
