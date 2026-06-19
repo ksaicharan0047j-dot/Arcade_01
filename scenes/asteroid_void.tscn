@@ -5,18 +5,35 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doa1l"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_micwl"]
+
 [node name="AsteroidVoid" type="Node2D" unique_id=1683339110]
 script = ExtResource("1_doa1l")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=57134695]
 position = Vector2(576, 550)
+collision_mask = 2
 script = ExtResource("1_7u8xr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1889984678]
 shape = SubResource("RectangleShape2D_doa1l")
 
+[node name="Hitbox" type="Area2D" parent="Player" unique_id=1613073342]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hitbox" unique_id=2106471196]
+shape = SubResource("RectangleShape2D_micwl")
+
 [node name="SpawnTimer" type="Timer" parent="." unique_id=310595212]
 process_callback = 0
 autostart = true
 
+[node name="ScoreLabel" type="Label" parent="." unique_id=1087134683]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+text = "Score: 0"
+
+[connection signal="area_entered" from="Player/Hitbox" to="Player" method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

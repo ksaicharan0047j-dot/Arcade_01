@@ -9,9 +9,17 @@ func _process(delta):
 		queue_free()
 
 func _draw():
-	draw_rect(
-		Rect2(-15, -15, 30, 30),
-		Color.WHITE
+	draw_polygon(
+		[
+			Vector2(-15, -10),
+			Vector2(-5, -18),
+			Vector2(10, -15),
+			Vector2(18, 0),
+			Vector2(12, 15),
+			Vector2(-10, 18),
+			Vector2(-18, 5)
+		],
+		[Color.WHITE]
 	)
 
 func _ready():
