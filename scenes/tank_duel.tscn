@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkgwy0dwtjcsm" path="res://scenes/tank.tscn" id="1_gljoa"]
 [ext_resource type="Script" uid="uid://ycskqv84irqa" path="res://scripts/enemy_tank.gd" id="2_gdidp"]
 [ext_resource type="Script" uid="uid://cbhxddgp5kpn3" path="res://scripts/moving_bar.gd" id="4_h47m4"]
-[ext_resource type="Script" uid="uid://omjs0r1d30og" path="res://scenes/background.gd" id="5_qs84n"]
+[ext_resource type="Script" uid="uid://omjs0r1d30og" path="res://scripts/background.gd" id="5_qs84n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4xvs"]
 size = Vector2(37, 35.5)

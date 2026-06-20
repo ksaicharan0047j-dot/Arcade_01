@@ -31,4 +31,4 @@ func _process(delta):
 func game_over(player_won):
 	Global.final_time = timer
 	Global.player_won = player_won
-	get_tree().change_scene_to_file("res://scenes/game_over_tank_duel.tscn")
+	get_tree().call_deferred("change_scene_to_file","res://scenes/game_over_tank_duel.tscn")

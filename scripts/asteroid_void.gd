@@ -1,6 +1,6 @@
 extends Node2D
 
-var asteroid_scene = preload("res://scenes/Asteroid.tscn")
+var asteroid_scene = preload("res://scenes/asteroid.tscn")
 var score := 0.0
 var survival_time := 0.0
 

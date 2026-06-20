@@ -36,7 +36,7 @@ func launch_game():
 		0:
 			get_tree().change_scene_to_file("res://scenes/asteroid_void.tscn")
 		1:
-			print("Tank Duel")
+			get_tree().change_scene_to_file("res://scenes/tank_duel.tscn")
 		2:
 			print("pulse Survival")
 		3:
