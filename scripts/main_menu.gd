@@ -8,7 +8,7 @@ extends Control
 	$VBoxContainer/QuitLabel
 ]
 var selected = 0
-
+var blink_timer := 0.0
 var menu_y = [260.0, 320.0,380.0,440.0]
 
 func _ready():
@@ -41,3 +41,10 @@ func launch_game():
 			print("pulse Survival")
 		3:
 			get_tree().quit()
+func _process(delta):
+	blink_timer += delta
+	
+	if int(blink_timer) % 2 == 0:
+		selector.visible = true
+	else:
+		selector.visible = false

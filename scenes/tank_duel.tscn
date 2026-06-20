@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://chxx0jubky08n"]
+
+[ext_resource type="Script" uid="uid://47wyrd6ol01j" path="res://scripts/tank_duel.gd" id="1_05vks"]
+[ext_resource type="PackedScene" uid="uid://bkgwy0dwtjcsm" path="res://scenes/tank.tscn" id="1_gljoa"]
+[ext_resource type="Script" uid="uid://ycskqv84irqa" path="res://scripts/enemy_tank.gd" id="2_gdidp"]
+[ext_resource type="Script" uid="uid://cbhxddgp5kpn3" path="res://scripts/moving_bar.gd" id="4_h47m4"]
+[ext_resource type="Script" uid="uid://omjs0r1d30og" path="res://scenes/background.gd" id="5_qs84n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4xvs"]
+size = Vector2(37, 35.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs84n"]
+size = Vector2(200, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twv25"]
+size = Vector2(200, 10)
+
+[node name="TankDuel" type="Node2D" unique_id=959771174]
+script = ExtResource("1_05vks")
+
+[node name="PlayerTank" parent="." unique_id=1625156002 instance=ExtResource("1_gljoa")]
+position = Vector2(576, 550)
+controls_enabled = true
+
+[node name="EnemyTank" type="CharacterBody2D" parent="." unique_id=934751053]
+position = Vector2(576, 100)
+rotation = 3.1415927
+script = ExtResource("2_gdidp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTank" unique_id=1060348885]
+shape = SubResource("RectangleShape2D_c4xvs")
+
+[node name="BulletContainer" type="Node2D" parent="." unique_id=1471116279]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=263736191]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=421631973]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MovingBoxContainer" type="Node2D" parent="." unique_id=365426030]
+
+[node name="MovingBar1" type="StaticBody2D" parent="MovingBoxContainer" unique_id=878504341]
+position = Vector2(800, 250)
+collision_mask = 2
+script = ExtResource("4_h47m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingBoxContainer/MovingBar1" unique_id=218332603]
+shape = SubResource("RectangleShape2D_qs84n")
+debug_color = Color(0.17250076, 0.63918895, 0.22821325, 0.41960785)
+
+[node name="MovingBar2" type="StaticBody2D" parent="MovingBoxContainer" unique_id=1636622874]
+position = Vector2(0, 330)
+rotation = -0.21118484
+collision_mask = 2
+script = ExtResource("4_h47m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingBoxContainer/MovingBar2" unique_id=1960812374]
+shape = SubResource("RectangleShape2D_twv25")
+debug_color = Color(6.738305e-07, 0.9983209, 0.18065226, 0.9764706)
+
+[node name="Background" type="Node2D" parent="." unique_id=1127699109]
+script = ExtResource("5_qs84n")

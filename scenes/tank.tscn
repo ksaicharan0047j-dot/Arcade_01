@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bkgwy0dwtjcsm"]
+
+[ext_resource type="Script" uid="uid://cwksxvfyemt5q" path="res://scripts/tank.gd" id="1_qrxud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4xvs"]
+size = Vector2(37, 35.5)
+
+[node name="Tank" type="CharacterBody2D" unique_id=1625156002]
+script = ExtResource("1_qrxud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060348885]
+shape = SubResource("RectangleShape2D_c4xvs")
