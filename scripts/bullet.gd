@@ -19,3 +19,11 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body is StaticBody2D:
 		queue_free()
+	if owner_type == "player":
+		if body.name == "EnemyTank":
+			get_tree().current_scene.enemy_hit()
+			queue_free()
+	if owner_type == "enemy":
+		if body.name == "PlayerTank":
+			get_tree().current_scene.player_hit()
+			queue_free()

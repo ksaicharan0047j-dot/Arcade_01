@@ -3,15 +3,11 @@ extends CharacterBody2D
 var speed = 400.0
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var player
-var last_player_x = 0.0
-var player_velocity = 0.0
+var target_x = 600.0
 
 func _physics_process(delta):
-	player_velocity = player.position.x - last_player_x
-	last_player_x = player.position.x
-	var future_x = player.position.x + player_velocity * 10
-	var distance = future_x - position.x
-	if abs(distance) > 15:
+	var distance = target_x - position.x
+	if abs(distance) > 10:
 		if distance > 0:
 			position.x += speed * delta
 		else:
@@ -32,12 +28,23 @@ func shoot():
 
 func enemy_loop():
 	while true:
-		await get_tree().create_timer(0.4).timeout
-		var distance = player.position.x - position.x
-		if abs(distance) < randf_range(20,60):
-			shoot()
+		target_x = randf_range(150,1000)
+		await get_tree().create_timer(randf_range(1.0,2.5)).timeout
+		var distance = abs(player.position.x - position.x)
+		if distance < 80:
+			if randf() < 0.7:
+				shoot()
+
+func shooting_loop():
+	while true:
+		await get_tree().create_timer(0.25).timeout
+		var distance = abs(player.position.x - position.x)
+		if distance < 60:
+			if randf() < 0.4:
+				shoot()
 
 func _ready():
 	queue_redraw()
 	player = get_parent().get_node("PlayerTank")
-	enemy_loop()
+	enemy_loop.call_deferred()
+	shooting_loop.call_deferred()

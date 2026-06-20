@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://clbi7bx26be2a"]
+
+[ext_resource type="Script" uid="uid://8c5jtr2q1dt5" path="res://scripts/game_over_tank_duel.gd" id="1_hjpym"]
+
+[node name="GameOverTankDuel" type="Control" unique_id=1460257062]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hjpym")
+
+[node name="ResultLabel" type="Label" parent="." unique_id=277517325]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 104.0
+offset_right = 859.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 64
+text = "YOU WON"
+
+[node name="TimeLabel" type="Label" parent="." unique_id=1771785552]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 260.0
+offset_right = 590.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 32
+text = "TIME: 0.00"
+
+[node name="BestTimeLabel" type="Label" parent="." unique_id=1175929630]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 321.0
+offset_right = 704.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 32
+text = "BEST: 0.00"
+
+[node name="RestartLabel" type="Label" parent="." unique_id=1637490778]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 380.0
+offset_right = 590.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 24
+text = "PRESS R TO RESTART"
+
+[node name="BackLabel" type="Label" parent="." unique_id=119267469]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 440.0
+offset_right = 590.0
+offset_bottom = 463.0
+theme_override_font_sizes/font_size = 24
+text = "PRESS ESC TO MENU"
