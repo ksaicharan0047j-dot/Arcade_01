@@ -1,118 +1,114 @@
 # ARCADE//01
 
-ARCADE//01 is a collection of old school arcade games made with the Godot Engine. This project is about easy to look at graphics, fast gameplay and classic arcade style.
+A collection of minimalist retro arcade games built with Godot 4.
+
+ARCADE//01 brings together several classic arcade-inspired games into one application. It features a simple black-and-white visual style, score tracking, and a unified game selection menu.
+
+## Features
+
+* 5 Playable Arcade Games
+* Retro Black and White Visual Style
+* Main Menu Navigation
+* Score and Best Score Tracking
+* Game Over Screens
+* Keyboard Controls
+* Web Browser Support
+* Built with Godot 4
 
 ## Included Games
 
 ### Asteroid Void
 
-You have to survive in a never ending storm of asteroids by avoiding them as they come at you from all sides. The longer you stay alive the faster the game gets.
+Survive an endless asteroid field by dodging incoming obstacles. The game gets harder over time.
 
-**How To Play**
+#### Controls
 
-* Press the Left Arrow to move left
-
-* Press the Right Arrow to move
+* Left Arrow - Move Left
+* Right Arrow - Move Right
 
 ---
 
 ### Tank Duel
 
-You are in a fight against another tank that is controlled by the computer. You have to move avoid getting shot and destroy the other tank before you run out of health.
+Battle against an AI-controlled tank in an arena with moving obstacles. Destroy the enemy before your health reaches zero.
 
-**How To Play**
+#### Controls
 
-* Press A to move left
-
-* Press D to move right
-
-* Press Space to shoot
+* Left Arrow - Move Left
+* Right Arrow - Move Right
+* Space - Shoot
 
 ---
 
 ### Pulse Survival
 
-You have to stay alive by moving through spots before the pulse gets to you. The game gets harder as you go on.
+Avoid expanding pulse waves by positioning yourself inside safe gaps. Your survival time determines your score.
 
-**How To Play**
+#### Controls
 
-* Use the Arrow Keys to move
+* Left Arrow - Move Left
+* Right Arrow - Move Right
+* Up Arrow - Move Up
+* Down Arrow - Move Down
 
 ---
 
 ### Snake
 
-This is a game where you are a snake in a 10x10 grid. You have to eat food get longer and not run into things.
+Classic Snake played on a 10×10 grid. Eat food, grow longer, and avoid crashing into walls or yourself.
 
-**How To Play**
+#### Controls
 
-* Use the Arrow Keys to change direction
+* Up Arrow - Move Up
+* Down Arrow - Move Down
+* Left Arrow - Move Left
+* Right Arrow - Move Right
 
 ---
 
-## What You Get
+### Pong
 
-* Four fun arcade games to play
+A modern version of the arcade classic. Compete against an AI paddle and score points by getting the ball past your opponent.
 
-* A retro look, with white graphics
+#### Controls
 
-* A menu to pick which game you want to play
+* Up Arrow - Move Up
+* Down Arrow - Move Down
 
-* It keeps track of your score and best time
-
-* You can play it in a web browser
-
-* The games are fast. Do not take up much space
-
-* It was all made with the Godot Engine
-
-## What I Used
+## Technologies Used
 
 * Godot Engine 4
-
 * GDScript
 
-## What Version We Are On
+## Current Version
 
-Version 1.2
+### Version 1.2
 
-### What I Have Done
+Completed:
 
-* I made a menu
+* Asteroid Void
+* Tank Duel
+* Pulse Survival
+* Snake
+* Pong
+* Main Menu
+* Best Score Tracking
+* Best Time Tracking
+* Web Export
+* itch.io Release
 
-* I made the Asteroid Void game
+## Future Plans
 
-* I made the Tank Duel game
+* Additional Arcade Games
+* Better AI
+* Visual Effects
+* Sound Effects
+* Difficulty Options
+* High Score Persistence
 
-* I made the Pulse Survival game
-
-* I made the Snake game
-
-* I made screens for when you lose
-
-* I can track your score and time
-
-* You can play it on the web
-
-* It works with GitHub
-
-* You can get it on itch.io URL https://saicharan004.itch.io/arcade01
-
-## What We Want To Do Next
-
-* Add arcade games
-
-* Make the gameplay better
-
-* Make it look nicer
-
-* Add sound effects and music
-
-* Add more ways to play
-
-## Who Made It
+## Author
 
 Sai Charan
 
-## Sorry
-there might bugs like best socre updating, or score labels.. I will fix them as soon as possible
+### SORRY
+There may be some bugs on score labels 
