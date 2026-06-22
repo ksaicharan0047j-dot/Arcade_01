@@ -114,5 +114,5 @@ Version 1.2
 
 Sai Charan
 
-##Sorry
-there might bugs like best socre updating, or score labels.. I will fdix them as soon as possible
+## Sorry
+there might bugs like best socre updating, or score labels.. I will fix them as soon as possible
