@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d3ejre2xh8t1o"]
+
+[ext_resource type="Script" uid="uid://dd4l83hoqycrb" path="res://scripts/pong_game.gd" id="1_n7qpn"]
+[ext_resource type="Script" uid="uid://bphkkysy6wl6p" path="res://scripts/player_paddle.gd" id="2_p0vad"]
+[ext_resource type="Script" uid="uid://dtgxinijh4b12" path="res://scripts/ai_paddel.gd" id="3_5xnyk"]
+[ext_resource type="Script" uid="uid://b7ljjdgxlxhnp" path="res://scripts/ball.gd" id="4_ydl0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa0an"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v2cl"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vad"]
+
+[node name="PongGame" type="Node2D" unique_id=644212533]
+script = ExtResource("1_n7qpn")
+
+[node name="PlayerPaddle" type="CharacterBody2D" parent="." unique_id=1986657558]
+position = Vector2(100, 324)
+script = ExtResource("2_p0vad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPaddle" unique_id=2084867763]
+shape = SubResource("RectangleShape2D_oa0an")
+
+[node name="AIPaddle" type="CharacterBody2D" parent="." unique_id=1578134944]
+position = Vector2(1052, 324)
+script = ExtResource("3_5xnyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIPaddle" unique_id=1689755789]
+shape = SubResource("RectangleShape2D_8v2cl")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=425593875]
+position = Vector2(576, 324)
+script = ExtResource("4_ydl0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=644031389]
+shape = SubResource("RectangleShape2D_p0vad")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=290225724]
+
+[node name="PlayerScore" type="Label" parent="CanvasLayer" unique_id=47063657]
+offset_left = 156.0
+offset_top = 8.0
+offset_right = 196.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 24
+
+[node name="AIScore" type="Label" parent="CanvasLayer" unique_id=2047104616]
+offset_left = 858.0
+offset_top = 10.0
+offset_right = 898.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 24
