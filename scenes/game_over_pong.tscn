@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0dpyqmshyoul"]
 
-[ext_resource type="Script" uid="uid://djo0kvomaa771" path="res://scripts/game_over.gd" id="1_0tehk"]
+[ext_resource type="Script" uid="uid://b4sc1nqcc7iit" path="res://scripts/game_over_pong.gd" id="1_0tehk"]
 
 [node name="GameOverPong" type="Control" unique_id=1202122123]
 layout_mode = 3

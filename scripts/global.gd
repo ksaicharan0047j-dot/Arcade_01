@@ -8,3 +8,5 @@ var final_snake_score = 0
 var pong_winner = ""
 var pong_player_score = 0
 var pong_ai_score = 0
+var final_score = 0
+var best_score = 0

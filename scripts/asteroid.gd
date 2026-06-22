@@ -24,3 +24,15 @@ func _draw():
 
 func _ready():
 	queue_redraw()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "AsteroidPlayer":
+
+		Global.final_score = int(
+			get_parent().score
+		)
+
+		call_deferred("go_to_game_over")
+func go_to_game_over():
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

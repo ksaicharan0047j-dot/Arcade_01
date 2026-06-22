@@ -4,24 +4,27 @@ var radius = 0.0
 var growth_speed = 200.0
 var gaps = []
 var dead = false
-var survival_time = 0.0
 
 func _ready():
 	for i in range(3):
 		gaps.append(randf() * TAU)
 
 func _process(delta):
+
 	radius += growth_speed * delta
 
 	queue_redraw()
 
-	var player = get_tree().current_scene.get_node("Player")
-	check_player(player)
+	var player = get_tree().current_scene.get_node("PulsePlayer")
+
+	if player:
+		check_player(player)
 
 	if radius > 800:
 		queue_free()
 
 func _draw():
+
 	draw_arc(
 		Vector2.ZERO,
 		radius,
@@ -58,17 +61,23 @@ func check_player(player):
 		var safe = false
 
 		for gap in gaps:
+
 			if player_angle >= gap and player_angle <= gap + 0.8:
 				safe = true
 				break
 
 		if !safe:
-			get_parent().get_parent().player_died()
+			player_died()
+
 func player_died():
+
 	if dead:
 		return
+
 	dead = true
-	game_over()
-func game_over():
-	Global.final_time = survival_time
-	get_tree().change_sceneto_file("res://scenes/game_over_pulse.tscn")
+
+	Global.final_time = get_tree().current_scene.survival_time
+
+	get_tree().change_scene_to_file(
+		"res://scenes/game_over_pulse.tscn"
+	)

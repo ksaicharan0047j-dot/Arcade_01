@@ -111,4 +111,4 @@ Completed:
 Sai Charan
 
 ### SORRY
-There may be some bugs on score labels 
+There may be some bugs on score labels 		

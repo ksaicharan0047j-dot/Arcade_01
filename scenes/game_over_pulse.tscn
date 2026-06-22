@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bd7ruoweptbgk"]
 
-[ext_resource type="Script" uid="uid://djo0kvomaa771" path="res://scripts/game_over.gd" id="1_v6pd2"]
+[ext_resource type="Script" uid="uid://bksqwgarwfek7" path="res://scripts/game_over_pulse.gd" id="1_v6pd2"]
 
 [node name="GameOverPulse" type="Control" unique_id=1202122123]
 layout_mode = 3

@@ -62,6 +62,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "SNAKE"
 
+[node name="PingPongLabel" type="Label" parent="VBoxContainer" unique_id=693948037]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ping Pong"
+
 [node name="QuitLabel" type="Label" parent="VBoxContainer" unique_id=1385146240]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
