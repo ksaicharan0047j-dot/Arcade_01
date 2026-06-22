@@ -57,6 +57,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "	PULSE SURVIVAL"
 
+[node name="SnakeLabel" type="Label" parent="VBoxContainer" unique_id=197149504]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "SNAKE"
+
 [node name="QuitLabel" type="Label" parent="VBoxContainer" unique_id=1385146240]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
