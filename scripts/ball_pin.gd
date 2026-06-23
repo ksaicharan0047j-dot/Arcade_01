@@ -1,11 +1,13 @@
 extends RigidBody2D
+var launched = false
+func _ready():
+	position = Vector2(1080,570)
+	queue_redraw()
+	freeze = true
+func _process(_delta):
+	if !launched and Input.is_action_just_pressed("ui_accept"):
+		launched = true
+		freeze = false
+		linear_velocity = Vector2(0,-1800)
 func _draw():
 	draw_circle(Vector2.ZERO,12,Color.WHITE)
-func _ready():
-	position = Vector2(1050,550)
-	queue_redraw()
-	sleeping = true
-func _input(event):
-	if sleeping and event.is_action_pressed("ui_accept"):
-		sleeping = false
-		linear_velocity = Vector2(-800,-1800)

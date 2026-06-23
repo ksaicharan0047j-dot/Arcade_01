@@ -4,73 +4,123 @@
 [ext_resource type="Script" uid="uid://cxvpgpvqclyvq" path="res://scripts/ball_pin.gd" id="1_y8qep"]
 [ext_resource type="Script" uid="uid://d3e5t7ocrvuva" path="res://scripts/left_flipper.gd" id="3_xnig2"]
 [ext_resource type="Script" uid="uid://tf228xpqceo4" path="res://scripts/right_flipper.gd" id="4_mq702"]
+[ext_resource type="Script" uid="uid://dcsuwxj0tycrr" path="res://scripts/walls.gd" id="5_1nrw3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rd15"]
 radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nrw3"]
-size = Vector2(60, 10)
+size = Vector2(120.208084, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d3mf"]
-size = Vector2(60, 10)
+size = Vector2(121.23392, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxvyr"]
-size = Vector2(10, 324)
+size = Vector2(10, 641)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnig2"]
-size = Vector2(10, 342)
+size = Vector2(10, 643)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq702"]
-size = Vector2(576, 10)
+size = Vector2(1151, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnv7"]
+size = Vector2(5, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_537tr"]
+size = Vector2(140, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfx1i"]
+size = Vector2(140, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0xxg"]
+size = Vector2(5, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0uf7"]
+size = Vector2(120, 20)
 
 [node name="PinballGame" type="Node2D" unique_id=1761415980]
 script = ExtResource("1_cxvyr")
 
 [node name="Ball" type="RigidBody2D" parent="." unique_id=1884657661]
 position = Vector2(576, 500)
+continuous_cd = 2
 script = ExtResource("1_y8qep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=620540286]
 shape = SubResource("CircleShape2D_1rd15")
 
 [node name="LeftFlipper" type="AnimatableBody2D" parent="." unique_id=827204908]
-position = Vector2(430, 560)
+position = Vector2(430, 500)
+rotation = 0.34906584
 script = ExtResource("3_xnig2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFlipper" unique_id=749216722]
-position = Vector2(60, 0)
-rotation = -0.34906584
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(59.506317, 0.00024414063)
+scale = Vector2(1.0000005, 1.0000005)
 shape = SubResource("RectangleShape2D_1nrw3")
 
 [node name="RightFlipper" type="AnimatableBody2D" parent="." unique_id=1213146191]
-position = Vector2(720, 560)
-rotation = 0.34906584
+position = Vector2(720, 500)
+rotation = -0.34906584
 script = ExtResource("4_mq702")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightFlipper" unique_id=673275866]
-position = Vector2(-60, 0)
+position = Vector2(-60.61725, 0.0002746582)
+scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_4d3mf")
 
 [node name="Walls" type="Node2D" parent="." unique_id=1048394344]
+script = ExtResource("5_1nrw3")
 
 [node name="LeftWall" type="StaticBody2D" parent="Walls" unique_id=716382227]
 position = Vector2(10, 324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=1089226503]
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_cxvyr")
 
 [node name="RightWall" type="StaticBody2D" parent="Walls" unique_id=984371550]
 position = Vector2(1142, 324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall" unique_id=257222046]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_xnig2")
 
 [node name="TopWall" type="StaticBody2D" parent="Walls" unique_id=770326467]
 position = Vector2(576, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall" unique_id=878085435]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_mq702")
+
+[node name="LauncherWall" type="StaticBody2D" parent="Walls" unique_id=551855830]
+position = Vector2(1055, 530)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LauncherWall" unique_id=883970450]
+shape = SubResource("RectangleShape2D_4mnv7")
+debug_color = Color(2.1658839e-06, 0.6099477, 0.39271823, 0.41960785)
+
+[node name="BottomLeftWall" type="StaticBody2D" parent="Walls" unique_id=430667056]
+position = Vector2(316, 300)
+rotation = -2.0594885
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomLeftWall" unique_id=1352715612]
+shape = SubResource("RectangleShape2D_537tr")
+
+[node name="BottomRightWall" type="StaticBody2D" parent="Walls" unique_id=667067298]
+position = Vector2(836, 300)
+rotation = 2.0594885
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomRightWall" unique_id=864310496]
+shape = SubResource("RectangleShape2D_qfx1i")
+
+[node name="LaunchGuide" type="StaticBody2D" parent="Walls" unique_id=498072502]
+position = Vector2(1101, 64.99994)
+rotation = -0.62831855
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LaunchGuide" unique_id=1001232640]
+shape = SubResource("RectangleShape2D_p0xxg")
 
 [node name="Bumpers" type="Area2D" parent="." unique_id=1184031606]
 
@@ -87,3 +137,11 @@ offset_left = 1000.0
 offset_top = 20.0
 offset_right = 1040.0
 offset_bottom = 43.0
+
+[node name="Drain" type="Area2D" parent="." unique_id=890236089]
+position = Vector2(576, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drain" unique_id=431025680]
+shape = SubResource("RectangleShape2D_n0uf7")
+
+[connection signal="body_entered" from="Drain" to="." method="_on_drain_body_entered"]

@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
-var rest_rotation = deg_to_rad(-20)
-var flip_rotation = deg_to_rad(-80)
+var rest_rotation = deg_to_rad(8)
+var flip_rotation = deg_to_rad(-56)
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		rotation = lerp_angle(rotation,flip_rotation,50.0 * delta)
