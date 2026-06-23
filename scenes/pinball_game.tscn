@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://twdl2rtkebgp"]
+
+[ext_resource type="Script" uid="uid://b1efxbqx4sy5j" path="res://scripts/pinball_game.gd" id="1_cxvyr"]
+[ext_resource type="Script" uid="uid://cxvpgpvqclyvq" path="res://scripts/ball_pin.gd" id="1_y8qep"]
+[ext_resource type="Script" uid="uid://d3e5t7ocrvuva" path="res://scripts/left_flipper.gd" id="3_xnig2"]
+[ext_resource type="Script" uid="uid://tf228xpqceo4" path="res://scripts/right_flipper.gd" id="4_mq702"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rd15"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nrw3"]
+size = Vector2(60, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d3mf"]
+size = Vector2(60, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxvyr"]
+size = Vector2(10, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnig2"]
+size = Vector2(10, 342)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq702"]
+size = Vector2(576, 10)
+
+[node name="PinballGame" type="Node2D" unique_id=1761415980]
+script = ExtResource("1_cxvyr")
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=1884657661]
+position = Vector2(576, 500)
+script = ExtResource("1_y8qep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=620540286]
+shape = SubResource("CircleShape2D_1rd15")
+
+[node name="LeftFlipper" type="AnimatableBody2D" parent="." unique_id=827204908]
+position = Vector2(430, 560)
+script = ExtResource("3_xnig2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFlipper" unique_id=749216722]
+position = Vector2(60, 0)
+rotation = -0.34906584
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1nrw3")
+
+[node name="RightFlipper" type="AnimatableBody2D" parent="." unique_id=1213146191]
+position = Vector2(720, 560)
+rotation = 0.34906584
+script = ExtResource("4_mq702")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFlipper" unique_id=673275866]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_4d3mf")
+
+[node name="Walls" type="Node2D" parent="." unique_id=1048394344]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls" unique_id=716382227]
+position = Vector2(10, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=1089226503]
+shape = SubResource("RectangleShape2D_cxvyr")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls" unique_id=984371550]
+position = Vector2(1142, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall" unique_id=257222046]
+shape = SubResource("RectangleShape2D_xnig2")
+
+[node name="TopWall" type="StaticBody2D" parent="Walls" unique_id=770326467]
+position = Vector2(576, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall" unique_id=878085435]
+shape = SubResource("RectangleShape2D_mq702")
+
+[node name="Bumpers" type="Area2D" parent="." unique_id=1184031606]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701098443]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1608631384]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer" unique_id=22415904]
+offset_left = 1000.0
+offset_top = 20.0
+offset_right = 1040.0
+offset_bottom = 43.0
