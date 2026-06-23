@@ -1,114 +1,108 @@
-# ARCADE//01
+# ARCADE/01
 
-A collection of minimalist retro arcade games built with Godot 4.
+ARCADE/01 is a collection of classic arcade-inspired games made in Godot 4. The project emphasizes simple mechanics, quick gameplay, chasing high scores, and local leaderboards.
 
-ARCADE//01 brings together several classic arcade-inspired games into one application. It features a simple black-and-white visual style, score tracking, and a unified game selection menu.
+The aim of the project is to build a growing arcade collection with multiple standalone games that can be accessed from one launcher.
 
-## Features
-
-* 5 Playable Arcade Games
-* Retro Black and White Visual Style
-* Main Menu Navigation
-* Score and Best Score Tracking
-* Game Over Screens
-* Keyboard Controls
-* Web Browser Support
-* Built with Godot 4
-
-## Included Games
+## Current Games
 
 ### Asteroid Void
 
-Survive an endless asteroid field by dodging incoming obstacles. The game gets harder over time.
+Survive as long as you can while dodging falling asteroids across multiple lanes. The game gets harder as your survival time increases.
 
-#### Controls
+Controls:
 
 * Left Arrow - Move Left
 * Right Arrow - Move Right
-
----
 
 ### Tank Duel
 
-Battle against an AI-controlled tank in an arena with moving obstacles. Destroy the enemy before your health reaches zero.
+This is a single-player tank battle game where player fights with AI Tank.
 
-#### Controls
+Controls:
 
-* Left Arrow - Move Left
-* Right Arrow - Move Right
-* Space - Shoot
-
----
+* Player 1:
+  * A - Move Left
+  * D - Move Right
+  * Space - Fire
 
 ### Pulse Survival
 
-Avoid expanding pulse waves by positioning yourself inside safe gaps. Your survival time determines your score.
+Avoid expanding pulse waves by positioning yourself in randomly generated safe gaps.
 
-#### Controls
+Controls:
 
 * Left Arrow - Move Left
 * Right Arrow - Move Right
 * Up Arrow - Move Up
 * Down Arrow - Move Down
-
----
 
 ### Snake
 
-Classic Snake played on a 10×10 grid. Eat food, grow longer, and avoid crashing into walls or yourself.
+This is a classic 10x10 grid snake game. Collect food, grow longer, and avoid crashing into walls or yourself.
 
-#### Controls
+Controls:
 
 * Up Arrow - Move Up
 * Down Arrow - Move Down
 * Left Arrow - Move Left
 * Right Arrow - Move Right
 
----
-
 ### Pong
 
-A modern version of the arcade classic. Compete against an AI paddle and score points by getting the ball past your opponent.
+Experience a single-player Pong game against an AI opponent. Score points by getting the ball past the AI paddle.
 
-#### Controls
+Controls:
 
 * Up Arrow - Move Up
 * Down Arrow - Move Down
 
-## Technologies Used
+### Breakout
 
-* Godot Engine 4
-* GDScript
+Destroy all bricks with a bouncing ball while keeping it from falling off the bottom of the screen.
 
-## Current Version
+Controls:
 
-### Version 1.2
+* Left Arrow - Move Paddle Left
+* Right Arrow - Move Paddle Right
 
-Completed:
+### Flappy Square
+
+Guide a square through gaps between pipes. Timing and precision are crucial as gravity and pipe speed make the game tougher.
+
+Controls:
+
+* Space - Flap
+* Enter - Flap
+
+## Features
+
+* Single arcade launcher
+* Multiple games to play
+* Individual game over screens
+* Local high scores
+* Keyboard controls
+* Minimalist black-and-white visuals
+* Built entirely in Godot 4
+
+## Planned Games
+
+* Frogger
+* Space Invaders
+* Pinball
+
+## Project Status
+
+Current Version: Phase 1
+
+Completed Games: 7
 
 * Asteroid Void
 * Tank Duel
 * Pulse Survival
 * Snake
 * Pong
-* Main Menu
-* Best Score Tracking
-* Best Time Tracking
-* Web Export
-* itch.io Release
+* Breakout
+* Flappy Square
 
-## Future Plans
-
-* Additional Arcade Games
-* Better AI
-* Visual Effects
-* Sound Effects
-* Difficulty Options
-* High Score Persistence
-
-## Author
-
-Sai Charan
-
-### SORRY
-There may be some bugs on score labels 		
+More games and features will be added during development.
