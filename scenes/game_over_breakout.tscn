@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dwcraav0kjkdi"]
+
+[ext_resource type="Script" uid="uid://b4tv4vy5dxo3q" path="res://scripts/game_over_breakout.gd" id="1_ji2jf"]
+
+[node name="GameOverBreakout" type="Control" unique_id=1754347634]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ji2jf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1693006135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 602.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1078355853]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 169.0
+offset_right = 716.0
+offset_bottom = 428.0
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=1297624177]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1322090520]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+
+[node name="HighScoreLabel" type="Label" parent="VBoxContainer" unique_id=1317657116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BEST: 0"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=23242741]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "RESTART"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=59107564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "MAIN MENU"
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

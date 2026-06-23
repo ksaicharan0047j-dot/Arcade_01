@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://wrw5w7athv5b"]
+
+[ext_resource type="Script" uid="uid://c2u74qod1wkd8" path="res://scripts/paddle.gd" id="1_1a50v"]
+[ext_resource type="Script" uid="uid://bw6r0fuvf15bf" path="res://scripts/breakout_game.gd" id="1_wr8ed"]
+[ext_resource type="Script" uid="uid://dwke5d5r7hrnc" path="res://scripts/ball_bo.gd" id="2_dxajs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk45c"]
+size = Vector2(120, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1a50v"]
+
+[node name="BreakoutGame" type="Node2D" unique_id=17691429]
+script = ExtResource("1_wr8ed")
+
+[node name="Paddle" type="CharacterBody2D" parent="." unique_id=464207344]
+position = Vector2(576, 600)
+script = ExtResource("1_1a50v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle" unique_id=1150173891]
+position = Vector2(576, 600)
+shape = SubResource("RectangleShape2D_dk45c")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=1521857886]
+position = Vector2(576, 500)
+script = ExtResource("2_dxajs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1814629350]
+position = Vector2(576, 500)
+shape = SubResource("CircleShape2D_1a50v")
+
+[node name="Bricks" type="Node2D" parent="." unique_id=843380280]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2031116126]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1216411756]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
