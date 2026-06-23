@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://20ankrmp8ucf"]
+
+[ext_resource type="Script" uid="uid://5yt6i2vkq36u" path="res://scripts/flappy_player.gd" id="1_i78j2"]
+[ext_resource type="Script" uid="uid://3846xguejq6f" path="res://scripts/flappy_square.gd" id="1_ii7od"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvon4"]
+
+[node name="FlappySquare" type="Node2D" unique_id=788169892]
+script = ExtResource("1_ii7od")
+
+[node name="FlappyPlayer" type="CharacterBody2D" parent="." unique_id=1325428226]
+script = ExtResource("1_i78j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlappyPlayer" unique_id=1266287918]
+shape = SubResource("RectangleShape2D_fvon4")
+
+[node name="PipeContainer" type="Node2D" parent="." unique_id=261565995]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1264070260]
+wait_time = 2.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=695153624]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=957302287]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

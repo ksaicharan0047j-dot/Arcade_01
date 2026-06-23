@@ -29,7 +29,8 @@ offset_bottom = 240.0
 theme_override_font_sizes/font_size = 25
 text = "►"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1589290891]
+[node name="VBoxContainer_Page1" type="VBoxContainer" parent="." unique_id=1589290891]
+visible = false
 layout_mode = 0
 offset_left = 396.0
 offset_top = 9.0
@@ -37,42 +38,80 @@ offset_right = 814.0
 offset_bottom = 633.0
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="VBoxContainer" unique_id=1215710992]
+[node name="Title" type="Label" parent="VBoxContainer_Page1" unique_id=1215710992]
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 56
 text = "ARCADE//01"
 
-[node name="AsteroidvoidLabel" type="Label" parent="VBoxContainer" unique_id=1163218067]
+[node name="AsteroidvoidLabel" type="Label" parent="VBoxContainer_Page1" unique_id=1163218067]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "	ASTEROID VOID"
 
-[node name="TankDuelLabel" type="Label" parent="VBoxContainer" unique_id=194339327]
+[node name="TankDuelLabel" type="Label" parent="VBoxContainer_Page1" unique_id=194339327]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "	TANK DUEL"
 
-[node name="PulseSurvivalLabel" type="Label" parent="VBoxContainer" unique_id=1769437137]
+[node name="PulseSurvivalLabel" type="Label" parent="VBoxContainer_Page1" unique_id=1769437137]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "	PULSE SURVIVAL"
 
-[node name="SnakeLabel" type="Label" parent="VBoxContainer" unique_id=197149504]
+[node name="SnakeLabel" type="Label" parent="VBoxContainer_Page1" unique_id=197149504]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "SNAKE"
 
-[node name="PingPongLabel" type="Label" parent="VBoxContainer" unique_id=693948037]
+[node name="PingPongLabel" type="Label" parent="VBoxContainer_Page1" unique_id=693948037]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "Ping Pong"
 
-[node name="BreakoutLabel" type="Label" parent="VBoxContainer" unique_id=339978697]
+[node name="BreakoutLabel" type="Label" parent="VBoxContainer_Page1" unique_id=339978697]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 36
 text = "BREAKOUT"
 
-[node name="QuitLabel" type="Label" parent="VBoxContainer" unique_id=1385146240]
+[node name="NextPageLabel" type="Label" parent="VBoxContainer_Page1" unique_id=1385146240]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "	QUIT"
+theme_override_font_sizes/font_size = 36
+text = "NEXT PAGE"
+
+[node name="VBoxContainer_Page2" type="VBoxContainer" parent="." unique_id=1178781290]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 96.0
+offset_right = 824.0
+offset_bottom = 720.0
+theme_override_constants/separation = 20
+
+[node name="FlappySquareLabel" type="Label" parent="VBoxContainer_Page2" unique_id=91743200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "FLAPPY SQUARE"
+
+[node name="FroggerLabel" type="Label" parent="VBoxContainer_Page2" unique_id=1559222276]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "FROGGER"
+
+[node name="SpaceInvadersLabel" type="Label" parent="VBoxContainer_Page2" unique_id=1240346759]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SAPCE INVADERS"
+
+[node name="PinballLabel" type="Label" parent="VBoxContainer_Page2" unique_id=325688483]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "PIN BALL"
+
+[node name="BackLabel" type="Label" parent="VBoxContainer_Page2" unique_id=642944406]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BACK"
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer_Page2" unique_id=1648749122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "QUIT"

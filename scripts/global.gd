@@ -12,3 +12,5 @@ var final_score = 0
 var best_score = 0
 var final_breakout_score = 0
 var best_breakout_score = 0
+var final_flappy_score = 0
+var best_flappy_score = 0
