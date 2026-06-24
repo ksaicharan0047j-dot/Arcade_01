@@ -9,6 +9,7 @@ func _process(_delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_up"):
 		position.y -= step_size
+		get_parent().frog_moved_up()
 	if event.is_action_pressed("ui_down"):
 		position.y += step_size
 	if event.is_action_pressed("ui_left"):

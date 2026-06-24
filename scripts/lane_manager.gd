@@ -30,7 +30,7 @@ func spawn_grass_lane(index):
 	lane.lane_type = "grass"
 	lane.position.y = 648 - ((index + 1) * 40)
 	lanes.add_child(lane)
-func spawn_top_lane():
+func spawn_top_lane(score):
 	var lane = lane_scene.instantiate()
 	var r = randf()
 	if r < 0.35:
@@ -45,3 +45,4 @@ func spawn_top_lane():
 			highest_y = existing_lane.position.y
 	lane.position.y = highest_y - 40
 	lanes.add_child(lane)
+	lane.world_score = score

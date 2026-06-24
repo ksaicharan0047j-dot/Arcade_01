@@ -1,15 +1,16 @@
 extends Node2D
 const LANE_HEIGHT = 40
+static var current_score = 0
 @onready var frog = $Frog
 @onready var lanes = $Lanes
 @onready var lane_manager = $LaneManager
 var score = 0
-func _process(_delta):
+func frog_moved_up():
 	if frog.position.y < 250:
 		scroll_world()
-		frog.position.y = 250
 func scroll_world():
 	score += 1
+	current_score = score
 	frog.position.y += LANE_HEIGHT
 	for lane in lanes.get_children():
 		lane.position.y += LANE_HEIGHT
@@ -21,5 +22,5 @@ func scroll_world():
 			lowest_lane = lane
 	if lowest_lane:
 		lowest_lane.queue_free()
-	lane_manager.spawn_top_lane()
+	lane_manager.spawn_top_lane(score)
 	print("Score:",score)
