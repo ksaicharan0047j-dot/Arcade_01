@@ -75,7 +75,7 @@ func launch_game():
 			2:
 				pass # space invaders
 			3:
-				pass #pinball
+				get_tree().change_scene_to_file("res://scenes/dodge_arena.tscn") 
 			4:
 				show_page_1()
 			5:

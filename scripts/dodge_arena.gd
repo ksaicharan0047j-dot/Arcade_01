@@ -6,19 +6,20 @@ var score = 0
 @onready var player = $PlayerDodge
 @onready var enemies = $Enemies
 func _on_spawn_timer_timeout():
-	var enemy = enemy_scene.instantiate()
-	var side = randi() % 4
-	match side:
-		0:
-			enemy.position = Vector2(randf_range(0,1152),-20)
-		1:
-			enemy.position = Vector2(randf_range(0,1152),668)
-		2:
-			enemy.position = Vector2(-10,randf_range(0,648))
-		3:
-			enemy.position = Vector2(1172,randf_range(0,648))
-	enemy.target = player
-	enemies.add_child(enemy)
+	for i in range(3):
+		var enemy = enemy_scene.instantiate()
+		var side = randi() % 4
+		match side:
+			0:
+				enemy.position = Vector2(randf_range(0,1152),-20)
+			1:
+				enemy.position = Vector2(randf_range(0,1152),668)
+			2:
+				enemy.position = Vector2(-10,randf_range(0,648))
+			3:
+				enemy.position = Vector2(1172,randf_range(0,648))
+		enemy.target = player
+		enemies.add_child(enemy)
 func player_hit():
 	print("PLAYER HIT")
 	lives -= 1

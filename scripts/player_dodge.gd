@@ -20,4 +20,4 @@ func take_damage():
 		GameData.dodge_final = get_parent().score
 		if GameData.dodge_final > GameData.dodge_high:
 			GameData.dodge_high = GameData.dodge_final
-		get_tree().change_scene_to_file("res://scenes/game_over_dodge.tscn")
+		get_tree().call_deferred("change_scene_to_file","res://scenes/game_over_dodge.tscn")

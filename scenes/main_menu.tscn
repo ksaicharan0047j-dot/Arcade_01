@@ -104,7 +104,7 @@ text = "SAPCE INVADERS"
 [node name="DodgeArenaLabel" type="Label" parent="VBoxContainer_Page2" unique_id=325688483]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "PIN BALL"
+text = "DODGE ARENA"
 
 [node name="BackLabel" type="Label" parent="VBoxContainer_Page2" unique_id=642944406]
 layout_mode = 2

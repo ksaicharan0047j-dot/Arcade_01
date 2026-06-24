@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://6d5obtgg8nh2"]
+
+[ext_resource type="Script" uid="uid://b3a7afabkg3kq" path="res://scripts/frog.gd" id="1_jqgfr"]
+[ext_resource type="Script" uid="uid://hfxnavkvxw7m" path="res://scripts/frogger_game.gd" id="1_uoyou"]
+[ext_resource type="Script" uid="uid://c177jeqxv0dkl" path="res://scripts/lane_manager.gd" id="2_tmx7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoyou"]
+
+[node name="FroggerGame" type="Node2D" unique_id=1156058267]
+script = ExtResource("1_uoyou")
+
+[node name="LaneManager" type="Node" parent="." unique_id=1952328011]
+script = ExtResource("2_tmx7k")
+
+[node name="Lanes" type="Node" parent="." unique_id=597825025]
+
+[node name="Cars" type="Node2D" parent="." unique_id=1264544859]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1628936779]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=381832624]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer" unique_id=2017233173]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Frog" type="CharacterBody2D" parent="." unique_id=1202259428]
+z_index = 100
+position = Vector2(576, 634)
+script = ExtResource("1_jqgfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frog" unique_id=2138704925]
+shape = SubResource("RectangleShape2D_uoyou")
+debug_color = Color(0.9902335, 0, 0.2865104, 0.41960785)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://i68r82y0weia"]
+
+[ext_resource type="Script" uid="uid://djqquukt13gki" path="res://scripts/lane.gd" id="1_i20lb"]
+
+[node name="Lane" type="Node2D" unique_id=568919900]
+script = ExtResource("1_i20lb")
