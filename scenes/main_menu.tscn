@@ -101,7 +101,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "SAPCE INVADERS"
 
-[node name="PinballLabel" type="Label" parent="VBoxContainer_Page2" unique_id=325688483]
+[node name="DodgeArenaLabel" type="Label" parent="VBoxContainer_Page2" unique_id=325688483]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "PIN BALL"

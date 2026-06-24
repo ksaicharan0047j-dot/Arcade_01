@@ -7,6 +7,7 @@ var selected = 0
 var blink_timer := 0.0
 var labels = []
 func _ready():
+	ScreenManager.set_landscape()
 	show_page_1()
 func show_page_1():
 	current_page = 1
@@ -31,7 +32,7 @@ func show_page_2():
 		page2.get_node("FlappySquareLabel"),
 		page2.get_node("FroggerLabel"),
 		page2.get_node("SpaceInvadersLabel"),
-		page2.get_node("PinballLabel"),
+		page2.get_node("DodgeArenaLabel"),
 		page2.get_node("BackLabel"),
 		page2.get_node("QuitLabel")
 	]
