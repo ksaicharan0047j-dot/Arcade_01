@@ -8,4 +8,4 @@ func _process(delta):
 		queue_free()
 	queue_redraw()
 func _draw():
-	draw_rect(Rect2(-2,-10,4,20),Color.YELLOW)
+	draw_rect(Rect2(-2,-10,4,20),Color.CYAN)

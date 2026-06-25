@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://gq1f86e2mlwn"]
 
-[node name="Invader" type="Node2D" unique_id=1534185031]
+[ext_resource type="Script" uid="uid://c7t8mfw66ecpt" path="res://scripts/invader.gd" id="1_188pp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_188pp"]
+size = Vector2(24, 20)
+
+[node name="Invader" type="Area2D" unique_id=498367263]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_188pp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433763884]
+shape = SubResource("RectangleShape2D_188pp")

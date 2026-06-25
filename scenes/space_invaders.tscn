@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hc4ge0vfj37m" path="res://scripts/space_invaders.gd" id="1_2mv0n"]
 [ext_resource type="Script" uid="uid://dlk6diaytwqai" path="res://scripts/space_player.gd" id="2_176mm"]
 [ext_resource type="Script" uid="uid://c5x4ouefgnvbk" path="res://scripts/player_bullets.gd" id="3_3jvfp"]
+[ext_resource type="Script" uid="uid://1tfksgdw6gvg" path="res://scripts/enemy_fleet.gd" id="3_4nsau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jvfp"]
 
@@ -10,12 +11,18 @@
 script = ExtResource("1_2mv0n")
 
 [node name="SpacePlayer" type="CharacterBody2D" parent="." unique_id=2124582482]
+collision_mask = 8
 script = ExtResource("2_176mm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacePlayer" unique_id=207217379]
 shape = SubResource("RectangleShape2D_3jvfp")
 
 [node name="EnemyFleet" type="Node2D" parent="." unique_id=495386608]
+script = ExtResource("3_4nsau")
+
+[node name="DiveTimer" type="Timer" parent="EnemyFleet" unique_id=38451040]
+wait_time = 8.0
+autostart = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2101305841]
 
@@ -39,3 +46,5 @@ offset_bottom = 23.0
 script = ExtResource("3_3jvfp")
 
 [node name="EnemyBullets" type="Node2D" parent="." unique_id=2088036961]
+
+[connection signal="timeout" from="EnemyFleet/DiveTimer" to="EnemyFleet" method="_on_dive_timer_timeout"]
