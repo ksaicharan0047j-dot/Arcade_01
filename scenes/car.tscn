@@ -6,7 +6,10 @@
 size = Vector2(40, 20)
 
 [node name="Car" type="Area2D" unique_id=514975240]
+collision_layer = 2
 script = ExtResource("1_c35m8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712383682]
 shape = SubResource("RectangleShape2D_qt2eu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

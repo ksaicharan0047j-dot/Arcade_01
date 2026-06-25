@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dcgnoo0sp3uds"]
+
+[ext_resource type="Script" uid="uid://c8ms5tofie6co" path="res://scripts/game_over_frogger.gd" id="1_paib5"]
+
+[node name="GameOverFrogger" type="Control" unique_id=10703023]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_paib5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1445735349]
+layout_mode = 0
+offset_right = 1198.0
+offset_bottom = 669.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510558019]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 208.0
+offset_right = 721.0
+offset_bottom = 467.0
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=1871868091]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1805969230]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+
+[node name="HighScoreLabel" type="Label" parent="VBoxContainer" unique_id=1236626089]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BEST: 0"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=1332528066]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "RESTART"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=1223103551]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "MAIN MENU"
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

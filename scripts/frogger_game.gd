@@ -5,11 +5,15 @@ static var current_score = 0
 @onready var lanes = $Lanes
 @onready var lane_manager = $LaneManager
 var score = 0
+func _ready():
+	$CanvasLayer/ScoreLabel.text = "Score: 0"
+	$CanvasLayer/LivesLabel.text = "Lives: 3"
 func frog_moved_up():
 	if frog.position.y < 250:
 		scroll_world()
 func scroll_world():
 	score += 1
+	$CanvasLayer/ScoreLabel.text = "Score: " + str(score)
 	current_score = score
 	frog.position.y += LANE_HEIGHT
 	for lane in lanes.get_children():

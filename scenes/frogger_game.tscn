@@ -29,6 +29,7 @@ offset_bottom = 23.0
 [node name="Frog" type="CharacterBody2D" parent="." unique_id=1202259428]
 z_index = 100
 position = Vector2(576, 630)
+collision_mask = 2
 script = ExtResource("1_jqgfr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Frog" unique_id=2138704925]

@@ -24,6 +24,7 @@ func spawn_lane(index):
 		lane.lane_type = "right"
 		lane.lane_direction = 1
 	lane.position.y = 648 - ((index + 1) * LANE_HEIGHT)
+	lane.world_score = 0
 	lanes.add_child(lane)
 func spawn_grass_lane(index):
 	var lane = lane_scene.instantiate()
@@ -44,5 +45,5 @@ func spawn_top_lane(score):
 		if existing_lane.position.y < highest_y:
 			highest_y = existing_lane.position.y
 	lane.position.y = highest_y - 40
-	lanes.add_child(lane)
 	lane.world_score = score
+	lanes.add_child(lane)

@@ -6,3 +6,5 @@
 script = ExtResource("1_i20lb")
 
 [node name="Cars" type="Node2D" parent="." unique_id=331401399]
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=141860937]
