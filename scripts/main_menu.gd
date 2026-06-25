@@ -71,7 +71,7 @@ func launch_game():
 			0:
 				get_tree().change_scene_to_file("res://scenes/flappy_square.tscn")
 			1:
-				pass #Frogger 
+				get_tree().change_scene_to_file("res://scenes/frogger_game.tscn")
 			2:
 				pass # space invaders
 			3:

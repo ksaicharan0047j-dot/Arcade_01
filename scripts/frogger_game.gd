@@ -7,6 +7,7 @@ static var current_score = 0
 var score = 0
 func _ready():
 	$CanvasLayer/ScoreLabel.text = "Score: 0"
+	
 	$CanvasLayer/LivesLabel.text = "Lives: 3"
 func frog_moved_up():
 	if frog.position.y < 250:

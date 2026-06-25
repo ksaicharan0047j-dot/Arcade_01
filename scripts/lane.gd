@@ -4,6 +4,9 @@ var lane_direction = 0
 var car_scene = preload("res://scenes/car.tscn")
 var boulder_scene = preload("res://scenes/boulder.tscn")
 var world_score = 0
+var path_center = -1
+var path_width = 0
+var blocked_cells = []
 func _draw():
 	if lane_type == "grass":
 		draw_rect(Rect2(0,0,1152,40),Color.DARK_GREEN)
@@ -37,14 +40,11 @@ func spawn_boulders():
 	if randf() > 0.35:
 		return
 	var obstacle_node = $Obstacles
-	var count = randi_range(1,3)
-	#Grid positions
-	var positions = []
 	for i in range(28):
-		positions.append(20 + i * 40)
-	positions.shuffle()
-	for i in range(count):
+		if abs(i - path_center) <= path_width:
+			continue
 		var boulder = boulder_scene.instantiate()
-		boulder.position.x = position[i]
-		boulder.posiiton.y =20
-		obstacle_node.ad_child(boulder)
+		boulder.position.x = 20 + (i * 40)
+		boulder.position.y = 20
+		obstacle_node.add_child(boulder)
+		blocked_cells.append(i)

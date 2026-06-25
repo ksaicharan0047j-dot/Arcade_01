@@ -3,6 +3,7 @@ var lane_scene = preload("res://scenes/lane.tscn")
 @onready var lanes = $"../Lanes"
 const LANE_HEIGHT = 40
 const START_LANES = 16
+var path_center = 14
 func _ready():
 	generate_initial_lanes()
 func generate_initial_lanes():
@@ -17,6 +18,10 @@ func spawn_lane(index):
 	if r < 0.35:
 		lane.lane_type = "grass"
 		lane.lane_direction = 0
+		path_center += randi_range(-2,2)
+		path_center = clamp(path_center,2,25)
+		lane.path_center = path_center
+		lane.path_width = 5
 	elif r < 0.675:
 		lane.lane_type = "left"
 		lane.lane_direction = -1
@@ -30,12 +35,25 @@ func spawn_grass_lane(index):
 	var lane = lane_scene.instantiate()
 	lane.lane_type = "grass"
 	lane.position.y = 648 - ((index + 1) * 40)
+	lane.path_center = path_center
+	lane.path_width = 5
 	lanes.add_child(lane)
 func spawn_top_lane(score):
 	var lane = lane_scene.instantiate()
 	var r = randf()
 	if r < 0.35:
 		lane.lane_type = "grass"
+		path_center += randi_range(-2,2)
+		path_center = clamp(path_center,2,25)
+		lane.path_center = path_center
+		if score >= 60:
+			lane.path_width = 2
+		elif score >= 40:
+			lane.path_width = 3
+		elif score >= 20:
+			lane.path_width = 4
+		else:
+			lane.path_width = 5
 	elif r < 0.675:
 		lane.lane_type = "left"
 	else:

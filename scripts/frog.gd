@@ -16,14 +16,13 @@ func _unhandled_input(event):
 	if invincible:
 		return
 	if event.is_action_pressed("ui_up"):
-		position.y -= step_size
-		get_parent().frog_moved_up()
+		try_move(Vector2(0,-step_size))
 	if event.is_action_pressed("ui_down"):
-		position.y += step_size
+		try_move(Vector2(0,step_size))
 	if event.is_action_pressed("ui_left"):
-		position.x -= step_size
+		try_move(Vector2(-step_size,0))
 	if event.is_action_pressed("ui_right"):
-		position.x += step_size
+		try_move(Vector2(step_size,0))
 func hit():
 	if invincible:
 		return
@@ -41,3 +40,25 @@ func hit():
 	invincible = false
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over_frogger.tscn")
+func try_move(offset):
+
+	var target = position + offset
+
+	# Find the lane we're trying to move onto
+	for lane in get_parent().get_node("Lanes").get_children():
+
+		if abs(target.y - lane.position.y - 20) < 5:
+
+			if lane.lane_type == "grass":
+
+				var cell = int((target.x -2 ) / 40)
+
+				if cell in lane.blocked_cells:
+					return
+
+			break
+
+	position = target
+
+	if offset.y < 0:
+		get_parent().frog_moved_up()
