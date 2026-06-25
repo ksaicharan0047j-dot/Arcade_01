@@ -24,6 +24,14 @@ func _ready():
 func spawn_cars():
 	var cars_node = $Cars
 	var car_count = randi_range(2,7)
+	if world_score < 20:
+		car_count = randi_range(2,4)
+	elif world_score < 40:
+		car_count = randi_range(3,5)
+	elif world_score < 60:
+		car_count = randi_range(4,6)
+	else:
+		car_count = randi_range(5,7)
 	var lane_speed = min(150 + (world_score * 3),400)
 	if lane_type == "left":
 		lane_speed = -lane_speed

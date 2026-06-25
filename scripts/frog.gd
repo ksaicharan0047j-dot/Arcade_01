@@ -41,24 +41,15 @@ func hit():
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over_frogger.tscn")
 func try_move(offset):
-
 	var target = position + offset
-
-	# Find the lane we're trying to move onto
 	for lane in get_parent().get_node("Lanes").get_children():
-
 		if abs(target.y - lane.position.y - 20) < 5:
-
 			if lane.lane_type == "grass":
-
 				var cell = int((target.x -2 ) / 40)
-
 				if cell in lane.blocked_cells:
 					return
-
 			break
-
 	position = target
-
+	position.x = clamp(position.x,20,1100)
 	if offset.y < 0:
 		get_parent().frog_moved_up()
