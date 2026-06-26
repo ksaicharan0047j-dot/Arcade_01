@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://cog1mhhe0sy3y"]
 
-[node name="BonusUFO" type="Node2D" unique_id=1501683263]
+[ext_resource type="Script" uid="uid://c4ra4182gj1x2" path="res://scripts/bonus_ufo.gd" id="1_m7mi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hot5j"]
+size = Vector2(50, 20)
+
+[node name="BonusUFO" type="Area2D" unique_id=1100970743]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_m7mi0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860097232]
+shape = SubResource("RectangleShape2D_hot5j")
