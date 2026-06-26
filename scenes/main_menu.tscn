@@ -30,6 +30,7 @@ theme_override_font_sizes/font_size = 25
 text = "►"
 
 [node name="VBoxContainer_Page1" type="VBoxContainer" parent="." unique_id=1589290891]
+visible = false
 layout_mode = 0
 offset_left = 396.0
 offset_top = 9.0
@@ -105,12 +106,54 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "DODGE ARENA"
 
-[node name="BackLabel" type="Label" parent="VBoxContainer_Page2" unique_id=642944406]
+[node name="NextPageLabel" type="Label" parent="VBoxContainer_Page2" unique_id=642944406]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "NEXT PAGE"
+
+[node name="BackLabel" type="Label" parent="VBoxContainer_Page2" unique_id=1648749122]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "BACK"
 
-[node name="QuitLabel" type="Label" parent="VBoxContainer_Page2" unique_id=1648749122]
+[node name="VBoxContainer_Page3" type="VBoxContainer" parent="." unique_id=1964759940]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 123.0
+offset_right = 712.0
+offset_bottom = 497.0
+
+[node name="TetrisLabel" type="Label" parent="VBoxContainer_Page3" unique_id=1078982318]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Tetris"
+
+[node name="EndlessRunnerLabel" type="Label" parent="VBoxContainer_Page3" unique_id=2014614455]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "End Less Runner"
+
+[node name="MissileCommandLabel" type="Label" parent="VBoxContainer_Page3" unique_id=635378660]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Missile Command"
+
+[node name="MinessweeperLabel" type="Label" parent="VBoxContainer_Page3" unique_id=380308433]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Minessweeper"
+
+[node name="PacManLiteLabel" type="Label" parent="VBoxContainer_Page3" unique_id=1168120291]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Pac Man Lite"
+
+[node name="BackLabel" type="Label" parent="VBoxContainer_Page3" unique_id=54038597]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BACK"
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer_Page3" unique_id=349191373]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "QUIT"

@@ -2,6 +2,7 @@ extends Control
 @onready var selector = $Selector
 @onready var page1 = $VBoxContainer_Page1
 @onready var page2 = $VBoxContainer_Page2
+@onready var page3 = $VBoxContainer_Page3
 var current_page = 1
 var selected = 0
 var blink_timer := 0.0
@@ -13,6 +14,7 @@ func show_page_1():
 	current_page = 1
 	page1.visible = true
 	page2.visible = false
+	page3.visible = false
 	labels = [
 		page1.get_node("AsteroidvoidLabel"),
 		page1.get_node("TankDuelLabel"),
@@ -28,13 +30,30 @@ func show_page_2():
 	current_page = 2
 	page1.visible = false
 	page2.visible = true
+	page3.visible = false
 	labels = [
 		page2.get_node("FlappySquareLabel"),
 		page2.get_node("FroggerLabel"),
 		page2.get_node("SpaceInvadersLabel"),
 		page2.get_node("DodgeArenaLabel"),
-		page2.get_node("BackLabel"),
-		page2.get_node("QuitLabel")
+		page2.get_node("NextPageLabel"),
+		page2.get_node("BackLabel")
+	]
+	selected = 0
+	update_selector()
+func show_page_3():
+	current_page = 3
+	page1.visible = false
+	page2.visible = false
+	page3.visible = true
+	labels = [
+		page3.get_node("TetrisLabel"),
+		page3.get_node("EndlessRunnerLabel"),
+		page3.get_node("MissileCommandLabel"),
+		page3.get_node("MinessweeperLabel"),
+		page3.get_node("PacManLiteLabel"),
+		page3.get_node("BackLabel"),
+		page3.get_node("QuitLabel")
 	]
 	selected = 0
 	update_selector()
@@ -66,19 +85,35 @@ func launch_game():
 				get_tree().change_scene_to_file("res://scenes/breakout_game.tscn")
 			6:
 				show_page_2()
-	else:
+	elif current_page == 2:
 		match selected:
 			0:
 				get_tree().change_scene_to_file("res://scenes/flappy_square.tscn")
 			1:
 				get_tree().change_scene_to_file("res://scenes/frogger_game.tscn")
 			2:
-				pass # space invaders
+				get_tree().change_scene_to_file("res://scenes/space_invaders.tscn")
 			3:
 				get_tree().change_scene_to_file("res://scenes/dodge_arena.tscn") 
 			4:
-				show_page_1()
+				show_page_3()
 			5:
+				show_page_1()
+	else:
+		match selected:
+			0:
+				pass #Tetris
+			1:
+				pass #endless runner
+			2:
+				pass #missile command
+			3:
+				pass #minesweeper
+			4:
+				pass #pacman
+			5:
+				show_page_2()
+			6:
 				get_tree().quit()
 func _process(delta):
 	blink_timer += delta

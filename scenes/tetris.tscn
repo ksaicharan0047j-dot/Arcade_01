@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://xogj5m1v2ic8"]
+
+[ext_resource type="Script" uid="uid://uxy2d1nyeupt" path="res://scripts/tetris.gd" id="1_hfyic"]
+
+[node name="Tetris" type="Node2D" unique_id=73592138]
+script = ExtResource("1_hfyic")
+
+[node name="Grid" type="Node2D" parent="." unique_id=1371446782]
+
+[node name="ActivePiece" type="Node2D" parent="." unique_id=1936751397]
+
+[node name="NextPiece" type="Node2D" parent="." unique_id=755034988]
+
+[node name="Walls" type="Node2D" parent="." unique_id=1625928043]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls" unique_id=43240323]
+
+[node name="RightWall" type="StaticBody2D" parent="Walls" unique_id=76729095]
+
+[node name="TopWall" type="StaticBody2D" parent="Walls" unique_id=7423496]
+
+[node name="BottomWall" type="StaticBody2D" parent="Walls" unique_id=2019190874]
+
+[node name="PieceTimer" type="Timer" parent="." unique_id=199217103]
+wait_time = 0.5
+
+[node name="LineClearTimer" type="Timer" parent="." unique_id=522178939]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1889078250]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1764655593]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer" unique_id=517648434]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LinesLabel" type="Label" parent="CanvasLayer" unique_id=1579137788]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NextLabel" type="Label" parent="CanvasLayer" unique_id=183079668]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="PieceTimer" to="." method="_on_piece_timer_timeout"]
