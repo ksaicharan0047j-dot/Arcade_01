@@ -102,7 +102,7 @@ func launch_game():
 	else:
 		match selected:
 			0:
-				pass #Tetris
+				get_tree().change_scene_to_file("res://scenes/tetris.tscn")
 			1:
 				pass #endless runner
 			2:

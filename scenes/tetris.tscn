@@ -7,20 +7,6 @@ script = ExtResource("1_hfyic")
 
 [node name="Grid" type="Node2D" parent="." unique_id=1371446782]
 
-[node name="ActivePiece" type="Node2D" parent="." unique_id=1936751397]
-
-[node name="NextPiece" type="Node2D" parent="." unique_id=755034988]
-
-[node name="Walls" type="Node2D" parent="." unique_id=1625928043]
-
-[node name="LeftWall" type="StaticBody2D" parent="Walls" unique_id=43240323]
-
-[node name="RightWall" type="StaticBody2D" parent="Walls" unique_id=76729095]
-
-[node name="TopWall" type="StaticBody2D" parent="Walls" unique_id=7423496]
-
-[node name="BottomWall" type="StaticBody2D" parent="Walls" unique_id=2019190874]
-
 [node name="PieceTimer" type="Timer" parent="." unique_id=199217103]
 wait_time = 0.5
 
@@ -29,19 +15,82 @@ wait_time = 0.5
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1889078250]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1764655593]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 918.0
+offset_top = 249.0
+offset_right = 979.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 34
+text = "Score: 0"
 
 [node name="LevelLabel" type="Label" parent="CanvasLayer" unique_id=517648434]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 917.0
+offset_top = 315.0
+offset_right = 1040.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 34
+text = "Level: 1"
 
 [node name="LinesLabel" type="Label" parent="CanvasLayer" unique_id=1579137788]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 918.0
+offset_top = 383.0
+offset_right = 1041.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 34
+text = "Lines: 0"
 
 [node name="NextLabel" type="Label" parent="CanvasLayer" unique_id=183079668]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="GameOverPanel" type="Control" parent="CanvasLayer" unique_id=1056582665]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 388.0
+offset_top = 133.0
+offset_right = 428.0
+offset_bottom = 173.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverPanel" unique_id=702208679]
+layout_mode = 0
+offset_left = -395.0
+offset_top = -135.0
+offset_right = 764.0
+offset_bottom = 510.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=367483614]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 21.0
+offset_right = 362.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+
+[node name="FinalScoreLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=576864795]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 148.0
+offset_right = 47.0
+offset_bottom = 171.0
+
+[node name="RestartLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=2088810064]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 209.0
+offset_right = 129.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 34
+text = "Restart"
+
+[node name="MainMenuLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1848215657]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 314.0
+offset_right = 197.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 34
+text = "Main Menu"
 
 [connection signal="timeout" from="PieceTimer" to="." method="_on_piece_timer_timeout"]
