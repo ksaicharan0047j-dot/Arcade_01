@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dimpkochni2ti"]
+
+[ext_resource type="Script" uid="uid://cef8pe3sayh1c" path="res://scripts/obstacle_runner.gd" id="1_e6kpo"]
+
+[node name="ObstacleRunner" type="Area2D" unique_id=517342024]
+script = ExtResource("1_e6kpo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1430529124]
+polygon = PackedVector2Array(-15, 15, 0, -15, 15, 15)

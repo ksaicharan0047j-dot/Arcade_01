@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://brcuml0w1thnl"]
+
+[ext_resource type="Script" uid="uid://o0qav705ohv5" path="res://scripts/minessweeper.gd" id="1_mkobj"]
+
+[node name="Minessweeper" type="Node2D" unique_id=1243642706]
+script = ExtResource("1_mkobj")
+
+[node name="Background" type="Node2D" parent="." unique_id=909702190]
+
+[node name="Board" type="Node2D" parent="." unique_id=2053521497]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1868074316]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1299382273]
+offset_left = 495.0
+offset_top = 2.0
+offset_right = 711.0
+offset_bottom = 65.0
+
+[node name="Button5x5" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=984010609]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "5 X 5"
+
+[node name="Button10x10" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=254767691]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "10 X 10"
+
+[node name="Button15x15" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=277688464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "15 X 15"
+
+[node name="MineLabel" type="Label" parent="CanvasLayer" unique_id=1242674662]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=680741863]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GameOverPanel" type="Control" parent="CanvasLayer" unique_id=1218802681]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1537823799]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 84.0
+offset_right = 341.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=1642005181]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 211.0
+offset_right = 209.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=290833961]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 339.0
+offset_right = 245.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button5x5" to="." method="_on_button_5x_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button10x10" to="." method="_on_button_10x_10_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button15x15" to="." method="_on_button_15x_15_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverPanel/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverPanel/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

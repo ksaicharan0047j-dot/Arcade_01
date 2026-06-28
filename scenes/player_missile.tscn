@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7mksjt36gdp5"]
+
+[ext_resource type="Script" uid="uid://dsbldpq745j7" path="res://scripts/player_missile.gd" id="1_ht1hs"]
+
+[node name="PlayerMissile" type="Node2D" unique_id=1249489052]
+script = ExtResource("1_ht1hs")

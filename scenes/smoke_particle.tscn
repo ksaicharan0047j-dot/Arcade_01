@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcs607xfhy5nl"]
+
+[ext_resource type="Script" uid="uid://brc6q0up6v53u" path="res://scripts/smoke_particle.gd" id="1_w4bx7"]
+
+[node name="SmokeParticle" type="Node2D" unique_id=1889687845]
+script = ExtResource("1_w4bx7")

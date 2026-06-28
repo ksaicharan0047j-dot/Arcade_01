@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmo44ceqy0bck"]
+
+[ext_resource type="Script" uid="uid://co60ssek8wr27" path="res://scripts/enemy_missile.gd" id="1_gc4k7"]
+
+[node name="EnemyMissile" type="Node2D" unique_id=502035515]
+script = ExtResource("1_gc4k7")

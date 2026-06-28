@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cabnlafa06ikk"]
+
+[ext_resource type="Script" uid="uid://dia37axd546ej" path="res://scripts/bird_runner.gd" id="1_iisil"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh5m1"]
+radius = 12.0
+height = 24.0
+
+[node name="BirdRunner" type="Area2D" unique_id=27092957]
+script = ExtResource("1_iisil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=151111826]
+shape = SubResource("CapsuleShape2D_xh5m1")

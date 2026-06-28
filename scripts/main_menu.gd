@@ -104,11 +104,11 @@ func launch_game():
 			0:
 				get_tree().change_scene_to_file("res://scenes/tetris.tscn")
 			1:
-				pass #endless runner
+				get_tree().change_scene_to_file("res://scenes/endless_runner.tscn")
 			2:
 				pass #missile command
 			3:
-				pass #minesweeper
+				get_tree().change_scene_to_file("res://scenes/minessweeper.tscn")
 			4:
 				pass #pacman
 			5:

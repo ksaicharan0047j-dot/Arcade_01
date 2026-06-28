@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://eo4gaxpn4r4f"]
+
+[ext_resource type="Script" uid="uid://cwu7b15jhp2vs" path="res://scripts/ground_runner.gd" id="1_q8iqq"]
+
+[node name="GroundRunner" type="Node2D" unique_id=628421212]
+script = ExtResource("1_q8iqq")
