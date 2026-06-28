@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://dr3rhd5hndd86"]
 
 [ext_resource type="Script" uid="uid://t2lok7qavlp4" path="res://scripts/missile_command.gd" id="1_w0apa"]
+[ext_resource type="Script" uid="uid://bk1upur3uxniv" path="res://scripts/terrain.gd" id="2_a4tld"]
 [ext_resource type="PackedScene" uid="uid://fucy77twnpwh" path="res://scenes/launcher.tscn" id="2_f8f2d"]
 [ext_resource type="PackedScene" uid="uid://bxfv7wltia5lk" path="res://scenes/city.tscn" id="3_4gtpe"]
+[ext_resource type="Script" uid="uid://bnfxqairwxhva" path="res://scripts/sky.gd" id="3_ginic"]
+[ext_resource type="Script" uid="uid://c5lmironjo2l3" path="res://scripts/moon.gd" id="4_fe3nv"]
 
 [node name="MissileCommand" type="Node2D" unique_id=980062569]
 script = ExtResource("1_w0apa")
 
-[node name="Sky" type="Node2D" parent="." unique_id=707882445]
+[node name="Terrain" type="Node2D" parent="." unique_id=122470419]
+script = ExtResource("2_a4tld")
 
-[node name="Stars" type="Node2D" parent="." unique_id=1061648943]
+[node name="Sky" type="Node2D" parent="." unique_id=707882445]
+script = ExtResource("3_ginic")
 
 [node name="Moon" type="Node2D" parent="." unique_id=1777698124]
+script = ExtResource("4_fe3nv")
 
 [node name="EnemyMissiles" type="Node2D" parent="." unique_id=1659716792]
 
