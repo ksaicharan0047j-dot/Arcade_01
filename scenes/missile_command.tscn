@@ -10,14 +10,18 @@
 [node name="MissileCommand" type="Node2D" unique_id=980062569]
 script = ExtResource("1_w0apa")
 
-[node name="Terrain" type="Node2D" parent="." unique_id=122470419]
-script = ExtResource("2_a4tld")
-
 [node name="Sky" type="Node2D" parent="." unique_id=707882445]
 script = ExtResource("3_ginic")
 
 [node name="Moon" type="Node2D" parent="." unique_id=1777698124]
 script = ExtResource("4_fe3nv")
+
+[node name="TargetMarkers" type="Node2D" parent="." unique_id=1708669173]
+
+[node name="Terrain" type="Node2D" parent="." unique_id=122470419]
+script = ExtResource("2_a4tld")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain" unique_id=2060855057]
 
 [node name="EnemyMissiles" type="Node2D" parent="." unique_id=1659716792]
 
@@ -34,8 +38,10 @@ script = ExtResource("4_fe3nv")
 [node name="Launcher1" parent="Launchers" unique_id=859137694 instance=ExtResource("2_f8f2d")]
 
 [node name="Launcher2" parent="Launchers" unique_id=210948664 instance=ExtResource("2_f8f2d")]
+launcher_type = 1
 
 [node name="Launcher3" parent="Launchers" unique_id=2029326397 instance=ExtResource("2_f8f2d")]
+launcher_type = 2
 
 [node name="Cities" type="Node2D" parent="." unique_id=1371254940]
 
@@ -50,8 +56,6 @@ script = ExtResource("4_fe3nv")
 [node name="City5" parent="Cities" unique_id=58033253 instance=ExtResource("3_4gtpe")]
 
 [node name="City6" parent="Cities" unique_id=1213667468 instance=ExtResource("3_4gtpe")]
-
-[node name="TargetMarkers" type="Node2D" parent="." unique_id=1708669173]
 
 [node name="Ground" type="Node2D" parent="." unique_id=1298495118]
 

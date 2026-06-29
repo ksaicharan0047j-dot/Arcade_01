@@ -1,11 +1,41 @@
 extends Node2D
 
+func _ready():
+	queue_redraw()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _draw():
+	var c = Color(0.95,0.95,0.97)
+	#center dot
+	draw_circle(
+		Vector2.ZERO,
+		2,
+		c
+	)
+	#u left
+	draw_line(
+		Vector2(-7,-7),
+		Vector2(-3,-3),
+		c,
+		1
+	)
+	#u right
+	draw_line(
+		Vector2(7,-7),
+		Vector2(3,-3),
+		c,
+		1
+	)
+	#l left
+	draw_line(
+		Vector2(-7,7),
+		Vector2(-3,3),
+		c,
+		1
+	)
+	#l right
+	draw_line(
+		Vector2(7,7),
+		Vector2(3,3),
+		c,
+		1
+	)
