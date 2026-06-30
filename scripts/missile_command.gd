@@ -3,6 +3,7 @@ extends Node2D
 @onready var cities = $Cities
 @onready var launchers = $Launchers
 const TARGET_SCENE = preload("res://scenes/target_marker.tscn")
+const PLAYER_MISSILE_SCENE = preload("res://scenes/player_missile.tscn")
 var active_targets: Array[Node2D] = []
 
 func _ready():
@@ -55,3 +56,11 @@ func assign_target(target: Node2D):
 	else:
 		launcher = launchers.get_child(2)
 	launcher.target = target
+	launcher_player_missile(launcher,target)
+
+func launcher_player_missile(launcher, target):
+	var missile = PLAYER_MISSILE_SCENE.instantiate()
+	missile.scale = Vector2(0.35,0.35)
+	$PlayerMissiles.add_child(missile)
+	missile.global_position = launcher.turret.global_position
+	missile.target = target

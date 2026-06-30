@@ -1,5 +1,26 @@
 extends Node2D
 
+var led_on := false
+var blink_timer := 0.0
+var blink_interval := 0.35
+var target: Node2D = null
+var speed = 700.0
+
+func _process(delta):
+	blink_timer += delta
+	if blink_timer >= blink_interval:
+		blink_timer = 0
+		led_on = !led_on
+		queue_redraw()
+	if target == null:
+		return
+	var dir = (target.global_position - global_position).normalized()
+	global_position += dir * speed * delta
+	rotation = dir.angle() + PI / 2
+	if global_position.distance_to(target.global_position) < 8:
+		target.queue_free()
+		queue_free()
+
 func _ready():
 	queue_redraw()
 
@@ -21,6 +42,28 @@ func draw_missile():
 	draw_rect(
 		Rect2(-7,-72,14,1),
 		Color(0.24,0.24,0.26)
+	)
+	#Upper armor panel
+	draw_rect(
+		Rect2(-6,-60,12,12),
+		Color(0.12,0.12,0.13)
+	)
+	#Lower armor panel
+	draw_rect(
+		Rect2(-6,-36,12,14),
+		Color(0.12,0.12,0.13)
+	)
+	draw_line(
+		Vector2(-6,-48),
+		Vector2(6,-48),
+		Color(0.05,0.05,0.05),
+		1
+	)
+	draw_line(
+		Vector2(-6,-22),
+		Vector2(6,-22),
+		Color(0.05,0.05,0.05),
+		1
 	)
 	#Right highlight
 	draw_rect(
@@ -47,7 +90,33 @@ func draw_missile():
 		1.4,
 		Color(0.18,0.18,0.18)
 	)
-	
+	#LED
+	draw_circle(
+		Vector2(0,-66),
+		2.2,
+		Color(0.05,0.05,0.05)
+	)
+	#Red LED
+	var led_color = Color(0.25,0.02,0.02)
+	if led_on:
+		led_color = Color(1.0,0.08,0.08)
+	draw_circle(
+		Vector2(1,-66),
+		1.2,
+		led_color
+	)
+	#glass reflection 
+	draw_circle(
+		Vector2(-0.4,-66.4),
+		0.4,
+		Color(1.0,0.85,0.85)
+	)
+	#Sensor glass highlight
+	draw_circle(
+		Vector2(-0.5,-66.5),
+		0.5,
+		Color(0.55,0.55,0.58)
+	)
 	#gudiance ring
 	draw_rect(
 		Rect2(-8,-56,16,4),
@@ -89,6 +158,15 @@ func draw_missile():
 	draw_rect(
 		Rect2(-8,0,16,8),
 		Color(0.05,.05,0.06)
+	)
+	draw_rect(
+		Rect2(-6,2,12,1),
+		Color(0.20,0.20,0.22)
+	)
+	#exhaust opening
+	draw_rect(
+		Rect2(-2,6,4,2),
+		Color(0.01,0.01,0.01)
 	)
 	draw_colored_polygon(
 		PackedVector2Array([
@@ -156,8 +234,25 @@ func draw_missile():
 		1
 	)
 	draw_line(
+		Vector2(9,-22),
+		Vector2(-16,-10),
+		Color(0.05,0.05,0.05),
+		1
+	)
+	draw_line(
+		Vector2(9,-22),
+		Vector2(16,-10),
+		Color(0.05,0.05,0.05),
+		1
+	)
+	draw_line(
 		Vector2(10,-21),
 		Vector2(16,-10),
 		Color(0.05,0.05,0.05),
 		1
 	)
+	var bolt = Color(0.45,0.45,0.48)
+	draw_circle(Vector2(-4,-54),0.8,bolt)
+	draw_circle(Vector2(4,-54),0.8,bolt)
+	draw_circle(Vector2(-4,-30),0.8,bolt)
+	draw_circle(Vector2(4,-30),0.8,bolt)
