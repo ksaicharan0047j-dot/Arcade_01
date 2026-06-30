@@ -18,6 +18,16 @@ script = ExtResource("4_fe3nv")
 
 [node name="TargetMarkers" type="Node2D" parent="." unique_id=1708669173]
 
+[node name="Launchers" type="Node2D" parent="." unique_id=1424267930]
+
+[node name="Launcher1" parent="Launchers" unique_id=859137694 instance=ExtResource("2_f8f2d")]
+
+[node name="Launcher2" parent="Launchers" unique_id=210948664 instance=ExtResource("2_f8f2d")]
+launcher_type = 1
+
+[node name="Launcher3" parent="Launchers" unique_id=2029326397 instance=ExtResource("2_f8f2d")]
+launcher_type = 2
+
 [node name="Terrain" type="Node2D" parent="." unique_id=122470419]
 script = ExtResource("2_a4tld")
 
@@ -32,16 +42,6 @@ script = ExtResource("2_a4tld")
 [node name="Smoke" type="Node2D" parent="." unique_id=553511382]
 
 [node name="Debris" type="Node2D" parent="." unique_id=1057370443]
-
-[node name="Launchers" type="Node2D" parent="." unique_id=1424267930]
-
-[node name="Launcher1" parent="Launchers" unique_id=859137694 instance=ExtResource("2_f8f2d")]
-
-[node name="Launcher2" parent="Launchers" unique_id=210948664 instance=ExtResource("2_f8f2d")]
-launcher_type = 1
-
-[node name="Launcher3" parent="Launchers" unique_id=2029326397 instance=ExtResource("2_f8f2d")]
-launcher_type = 2
 
 [node name="Cities" type="Node2D" parent="." unique_id=1371254940]
 

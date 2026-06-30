@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co60ssek8wr27" path="res://scripts/enemy_missile.gd" id="1_gc4k7"]
 
-[node name="EnemyMissile" type="Node2D" unique_id=502035515]
+[node name="EnemyMissile" type="Area2D" unique_id=469588649]
 script = ExtResource("1_gc4k7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1440255674]

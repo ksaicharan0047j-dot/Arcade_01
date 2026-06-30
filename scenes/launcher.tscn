@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://fucy77twnpwh"]
 
 [ext_resource type="Script" uid="uid://b8dsom8imlxkl" path="res://scripts/launcher.gd" id="1_ut831"]
+[ext_resource type="Script" uid="uid://sbfu4a3hk6mi" path="res://scripts/base.gd" id="2_cm6pl"]
+[ext_resource type="Script" uid="uid://dvg1lhplxjxxw" path="res://scripts/turret.gd" id="3_wr5gk"]
 
 [node name="Launcher" type="Node2D" unique_id=859137694]
 script = ExtResource("1_ut831")
+
+[node name="Base" type="Node2D" parent="." unique_id=1049805154]
+script = ExtResource("2_cm6pl")
+
+[node name="Turret" type="Node2D" parent="." unique_id=78681377]
+script = ExtResource("3_wr5gk")

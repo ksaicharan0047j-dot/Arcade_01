@@ -31,6 +31,9 @@ func place_launchers():
 	for i in range(launchers.get_child_count()):
 		var launcher = launchers.get_child(i)
 		launcher.position = launcher_positions[i]
+		launcher.launcher_type = i
+		launcher.turret.launcher_type = i
+		launcher.turret.queue_redraw()
 
 func _input(event):
 	if event.is_action_pressed("click"):
@@ -38,4 +41,17 @@ func _input(event):
 		add_child(target)
 		target.position = get_global_mouse_position()
 		active_targets.append(target)
-		print(active_targets.size())
+		assign_target(target)
+
+func assign_target(target: Node2D):
+	var x = target.position.x
+	var launcher
+	var screen_width = get_viewport_rect().size.x
+	var third = screen_width / 3.0
+	if x < third:
+		launcher = launchers.get_child(0)
+	elif x < third * 2:
+		launcher = launchers.get_child(1)
+	else:
+		launcher = launchers.get_child(2)
+	launcher.target = target
