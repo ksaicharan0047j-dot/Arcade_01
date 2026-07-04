@@ -3,4 +3,7 @@
 [ext_resource type="Script" uid="uid://dqwcviedmkhu4" path="res://scripts/explosion.gd" id="1_17npe"]
 
 [node name="Explosion" type="Node2D" unique_id=632034618]
+position = Vector2(545, 304)
 script = ExtResource("1_17npe")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=4412016]

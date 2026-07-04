@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bjaw0pjxohx7b"]
+
+[ext_resource type="Script" uid="uid://b0kmy6lx8ubmn" path="res://scripts/shockwave_arc.gd" id="1_vdrj4"]
+
+[node name="ShockwaveArc" type="Node2D" unique_id=2056196392]
+position = Vector2(501, 370)
+script = ExtResource("1_vdrj4")

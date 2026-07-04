@@ -1,15 +1,20 @@
 extends Node2D
 
 @export var launcher_type := 0
-var target: Node2D = null
+var targets: Array[Node2D] = []
+var fired := false
+var missile_command : Node = null
 @onready var turret = $Turret
 
 func _ready():
 	turret.launcher_type = launcher_type
+	missile_command = get_parent().get_parent()
 
 func _process(delta):
-	if target == null:
+	if targets.is_empty():
+		fired = false
 		return
+	var target = targets[0]
 	var dir = target.global_position - turret.global_position
 	var angle = dir.angle() + PI / 2.0
 	angle = clamp(
@@ -22,3 +27,8 @@ func _process(delta):
 		angle,
 		6.0 * delta
 	)
+	if !fired and abs(turret.rotation - angle) < 0.03:
+		fired = true
+		missile_command.launcher_player_missile(self,target)
+		targets.pop_front()
+		fired = false

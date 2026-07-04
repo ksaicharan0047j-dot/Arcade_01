@@ -4,7 +4,12 @@ var led_on := false
 var blink_timer := 0.0
 var blink_interval := 0.35
 var target: Node2D = null
-var speed = 700.0
+var speed := 0.0
+const MAX_SPEED := 700.0
+const ACCELERATION := 2200.0
+var flame_fliker := 0.0
+var smoke_timer := 0.0
+const SMOKE = preload("res://scenes/smoke_particle.tscn")
 
 func _process(delta):
 	blink_timer += delta
@@ -14,12 +19,25 @@ func _process(delta):
 		queue_redraw()
 	if target == null:
 		return
+	speed = move_toward(
+		speed,
+		MAX_SPEED,
+		ACCELERATION * delta
+	)
+	flame_fliker += delta * 20
+	smoke_timer += delta
+	queue_redraw()
 	var dir = (target.global_position - global_position).normalized()
 	global_position += dir * speed * delta
 	rotation = dir.angle() + PI / 2
 	if global_position.distance_to(target.global_position) < 8:
 		target.queue_free()
 		queue_free()
+	if smoke_timer >= 0.03:
+		smoke_timer = 0
+		var smoke = SMOKE.instantiate()
+		get_parent().add_child(smoke)
+		smoke.global_position = global_position + Vector2(0,6)
 
 func _ready():
 	queue_redraw()
@@ -256,3 +274,20 @@ func draw_missile():
 	draw_circle(Vector2(4,-54),0.8,bolt)
 	draw_circle(Vector2(-4,-30),0.8,bolt)
 	draw_circle(Vector2(4,-30),0.8,bolt)
+	var flame_length = 8.0 + sin(flame_fliker) * 2.0
+	draw_colored_polygon(
+		PackedVector2Array([
+			Vector2(-2,8),
+			Vector2(0,8 + flame_length),
+			Vector2(2,8),
+		]),
+		Color(1.0,0.55,0.08)
+	)
+	draw_colored_polygon(
+		PackedVector2Array([
+			Vector2(-1,8),
+			Vector2(0,5 + flame_length),
+			Vector2(1,8)
+		]),
+		Color(1.0,0.95,0.55)
+	)

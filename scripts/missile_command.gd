@@ -55,12 +55,11 @@ func assign_target(target: Node2D):
 		launcher = launchers.get_child(1)
 	else:
 		launcher = launchers.get_child(2)
-	launcher.target = target
-	launcher_player_missile(launcher,target)
+	launcher.targets.append(target)
 
 func launcher_player_missile(launcher, target):
 	var missile = PLAYER_MISSILE_SCENE.instantiate()
 	missile.scale = Vector2(0.35,0.35)
 	$PlayerMissiles.add_child(missile)
-	missile.global_position = launcher.turret.global_position
+	missile.global_position = launcher.turret.get_node("MissileSpawn").global_position
 	missile.target = target

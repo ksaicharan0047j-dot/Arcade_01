@@ -12,3 +12,6 @@ script = ExtResource("2_cm6pl")
 
 [node name="Turret" type="Node2D" parent="." unique_id=78681377]
 script = ExtResource("3_wr5gk")
+
+[node name="MissileSpawn" type="Marker2D" parent="Turret" unique_id=895779030]
+position = Vector2(0, -64)

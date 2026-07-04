@@ -1,11 +1,18 @@
 extends Node2D
 
+var life := 0.7
+func _process(delta):
+	life -= delta
+	position.y += 8 * delta
+	scale += Vector2.ONE * delta * 0.6
+	if life <= 0:
+		queue_free()
+	queue_redraw()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _draw():
+	draw_circle(
+		Vector2.ZERO,
+		3,
+		Color(0.75,0.75,0.75,life)
+	)
+	
