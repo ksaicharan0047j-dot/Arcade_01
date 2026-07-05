@@ -6,10 +6,10 @@ const Hold_time := 0.30
 const Collapse_time := 1.20
 const Fade_time := 0.50
 
-const Start_radius := 28.0
-const Min_radius := 20.0
-const Max_radius := 120.0
-const End_radius := 40.0
+@export var Start_radius := 28.0
+@export var Min_radius := 20.0
+@export var Max_radius := 120.0
+@export var End_radius := 40.0
 
 var timer := 0.0
 var radius := Start_radius

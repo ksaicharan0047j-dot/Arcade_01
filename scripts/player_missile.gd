@@ -10,6 +10,7 @@ const ACCELERATION := 2200.0
 var flame_fliker := 0.0
 var smoke_timer := 0.0
 const SMOKE = preload("res://scenes/smoke_particle.tscn")
+const EXPLOSION = preload("res://scenes/explosion.tscn")
 
 func _process(delta):
 	blink_timer += delta
@@ -31,6 +32,13 @@ func _process(delta):
 	global_position += dir * speed * delta
 	rotation = dir.angle() + PI / 2
 	if global_position.distance_to(target.global_position) < 8:
+		var explosion = EXPLOSION.instantiate()
+		explosion.Start_radius = 8.0
+		explosion.Min_radius = 6.0
+		explosion.Max_radius = 28.0
+		explosion.End_radius = 10.0
+		get_parent().add_child(explosion)
+		explosion.global_position = target.global_position
 		target.queue_free()
 		queue_free()
 	if smoke_timer >= 0.03:
