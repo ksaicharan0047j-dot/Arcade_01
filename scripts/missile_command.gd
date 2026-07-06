@@ -2,14 +2,17 @@ extends Node2D
 
 @onready var cities = $Cities
 @onready var launchers = $Launchers
+
 const TARGET_SCENE = preload("res://scenes/target_marker.tscn")
 const PLAYER_MISSILE_SCENE = preload("res://scenes/player_missile.tscn")
+
 var active_targets: Array[Node2D] = []
 
 func _ready():
 	randomize()
 	place_cities()
 	place_launchers()
+
 func place_cities():
 	var city_positions = [
 		Vector2(245,610),
@@ -19,9 +22,9 @@ func place_cities():
 		Vector2(800,610),
 		Vector2(905,610)
 	]
-	for i in range(cities.get_child_count()):
-		var city = cities.get_child(i)
-		city.position = city_positions[i]
+
+	for i in range(min(cities.get_child_count(), city_positions.size())):
+		cities.get_child(i).position = city_positions[i]
 
 func place_launchers():
 	var launcher_positions = [
@@ -29,7 +32,8 @@ func place_launchers():
 		Vector2(576,568),
 		Vector2(1013,576)
 	]
-	for i in range(launchers.get_child_count()):
+
+	for i in range(min(launchers.get_child_count(), launcher_positions.size())):
 		var launcher = launchers.get_child(i)
 		launcher.position = launcher_positions[i]
 		launcher.launcher_type = i
@@ -45,21 +49,36 @@ func _input(event):
 		assign_target(target)
 
 func assign_target(target: Node2D):
-	var x = target.position.x
-	var launcher
-	var screen_width = get_viewport_rect().size.x
-	var third = screen_width / 3.0
-	if x < third:
-		launcher = launchers.get_child(0)
-	elif x < third * 2:
-		launcher = launchers.get_child(1)
-	else:
-		launcher = launchers.get_child(2)
-	launcher.targets.append(target)
+
+	if launchers.get_child_count() == 0:
+		target.queue_free()
+		return
+
+	var closest_launcher = null
+	var closest_distance = INF
+
+	for launcher in launchers.get_children():
+
+		var distance = abs(target.position.x - launcher.position.x)
+
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_launcher = launcher
+
+	if closest_launcher == null:
+		target.queue_free()
+		return
+
+	closest_launcher.targets.append(target)
+	launcher_player_missile(closest_launcher, target)
 
 func launcher_player_missile(launcher, target):
 	var missile = PLAYER_MISSILE_SCENE.instantiate()
+
 	missile.scale = Vector2(0.35,0.35)
+
 	$PlayerMissiles.add_child(missile)
+
 	missile.global_position = launcher.turret.get_node("MissileSpawn").global_position
+
 	missile.target = target

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxfv7wltia5lk" path="res://scenes/city.tscn" id="3_4gtpe"]
 [ext_resource type="Script" uid="uid://bnfxqairwxhva" path="res://scripts/sky.gd" id="3_ginic"]
 [ext_resource type="Script" uid="uid://c5lmironjo2l3" path="res://scripts/moon.gd" id="4_fe3nv"]
+[ext_resource type="Script" uid="uid://cswi0d1muldjm" path="res://scripts/enemy_missile_command.gd" id="6_ginic"]
 
 [node name="MissileCommand" type="Node2D" unique_id=980062569]
 script = ExtResource("1_w0apa")
@@ -36,6 +37,9 @@ script = ExtResource("2_a4tld")
 [node name="EnemyMissiles" type="Node2D" parent="." unique_id=1659716792]
 
 [node name="PlayerMissiles" type="Node2D" parent="." unique_id=481893505]
+
+[node name="EnemyMissileCommand" type="Node2D" parent="." unique_id=1423037391]
+script = ExtResource("6_ginic")
 
 [node name="Explosions" type="Node2D" parent="." unique_id=85391534]
 

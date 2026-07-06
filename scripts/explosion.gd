@@ -10,6 +10,7 @@ const Fade_time := 0.50
 @export var Min_radius := 20.0
 @export var Max_radius := 120.0
 @export var End_radius := 40.0
+@export var use_shockwave := true
 
 var timer := 0.0
 var radius := Start_radius
@@ -46,13 +47,13 @@ func  _process(delta):
 		var t = (timer - Shrink_time) / Expand_time
 		radius = lerp(Min_radius, Max_radius,t)
 		alpha = 1.0
-		
-		if !arc_triggered and radius >= Max_radius - 1.0:
-			arc_triggered = true
-			shockwave = preload("res://scenes/shockwave_arc.tscn").instantiate()
-			get_parent().add_child(shockwave)
-			shockwave.global_position = global_position
-			shockwave.outer_radius = radius - 10.0
+		if use_shockwave:
+			if !arc_triggered and radius >= Max_radius - 1.0:
+				arc_triggered = true
+				shockwave = preload("res://scenes/shockwave_arc.tscn").instantiate()
+				get_parent().add_child(shockwave)
+				shockwave.global_position = global_position
+				shockwave.outer_radius = radius - 10.0
 	elif timer <Shrink_time + Expand_time + Hold_time + Collapse_time:
 		var t = (timer - Shrink_time - Expand_time - Hold_time) / Collapse_time
 		radius = lerp(Max_radius,End_radius,t)
