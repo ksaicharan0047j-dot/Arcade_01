@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0le4ni4lykbu"]
+
+[ext_resource type="Script" uid="uid://b4xlqtyrjmlap" path="res://scripts/game_over_missile_command.gd" id="1_yng2s"]
+
+[node name="GameOverMissileCommand" type="CanvasLayer" unique_id=266928156]
+script = ExtResource("1_yng2s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=853039685]
+offset_right = 1211.0
+offset_bottom = 700.0
+color = Color(0, 0, 0, 1)
+
+[node name="Info" type="Label" parent="." unique_id=1450770450]
+offset_right = 40.0
+offset_bottom = 23.0

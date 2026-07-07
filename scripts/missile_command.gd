@@ -9,6 +9,7 @@ var wave_running := false
 
 const TARGET_SCENE = preload("res://scenes/target_marker.tscn")
 const PLAYER_MISSILE_SCENE = preload("res://scenes/player_missile.tscn")
+const CITY_SCENE = preload("res://scenes/city.tscn")
 
 
 
@@ -101,7 +102,9 @@ func start_wave():
 	missiles_spawned = 0
 	wave_running = true
 	
-	$EnemyMissileCommand.interval = 2.0
+	$EnemyMissileCommand.interval = max(0.45,2.0 - wave * 0.12)
+	for launcher in launchers.get_children():
+		launcher.missiles_left = launcher.MAX_MISSILES
 
 func end_wave():
 	wave_running = false
@@ -117,7 +120,7 @@ func end_wave():
 	screen.show_results()
 
 	await screen.tree_exited
-
+	rebuild_cities()
 	wave += 1
 	missiles_this_wave += 5
 	start_wave()
@@ -139,3 +142,27 @@ func calculate_bonus() -> int:
 		missiles_left * 10 +
 		wave * 500 
 	)
+
+func rebuild_cities():
+	var city_positions = [
+		Vector2(245,610),
+		Vector2(340,610),
+		Vector2(435,610),
+		Vector2(700,610),
+		Vector2(800,610),
+		Vector2(905,610)
+	]
+	
+	for city in cities.get_children():
+		city.queue_free()
+	for pos in city_positions:
+		var city = CITY_SCENE.instantiate()
+		cities.add_child(city)
+		city.position = pos
+
+func check_game_over():
+	if launchers.get_child_count() == 0:
+		game_over()
+
+func game_over():
+	

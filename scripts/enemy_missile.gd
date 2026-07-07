@@ -35,6 +35,8 @@ func _process(delta):
 		get_parent().add_child(explosion)
 		explosion.global_position = global_position
 		target.queue_free()
+		if target.get_parent() == get_tree().current_scene.get_node("Launchers"):
+			get_tree().current_scene.check_game_over()
 		queue_free()
 		return
 	queue_redraw()
