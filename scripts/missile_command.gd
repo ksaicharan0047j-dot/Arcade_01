@@ -1,17 +1,29 @@
 extends Node2D
 
+var wave := 1
+var missiles_this_wave := 10
+var missiles_spawned := 0
+var wave_running := false
 @onready var cities = $Cities
 @onready var launchers = $Launchers
 
 const TARGET_SCENE = preload("res://scenes/target_marker.tscn")
 const PLAYER_MISSILE_SCENE = preload("res://scenes/player_missile.tscn")
 
-var active_targets: Array[Node2D] = []
+
 
 func _ready():
 	randomize()
 	place_cities()
 	place_launchers()
+	start_wave()
+
+func _process(_delta):
+	if !wave_running:
+		return
+	if missiles_spawned >= missiles_this_wave and $EnemyMissiles.get_child_count() == 0:
+		wave_running = false
+		end_wave()
 
 func place_cities():
 	var city_positions = [
@@ -45,7 +57,6 @@ func _input(event):
 		var target = TARGET_SCENE.instantiate()
 		add_child(target)
 		target.position = get_global_mouse_position()
-		active_targets.append(target)
 		assign_target(target)
 
 func assign_target(target: Node2D):
@@ -58,6 +69,8 @@ func assign_target(target: Node2D):
 	var closest_distance = INF
 
 	for launcher in launchers.get_children():
+		if launcher.missiles_left <= 0:
+			continue
 
 		var distance = abs(target.position.x - launcher.position.x)
 
@@ -70,7 +83,6 @@ func assign_target(target: Node2D):
 		return
 
 	closest_launcher.targets.append(target)
-	launcher_player_missile(closest_launcher, target)
 
 func launcher_player_missile(launcher, target):
 	var missile = PLAYER_MISSILE_SCENE.instantiate()
@@ -82,3 +94,48 @@ func launcher_player_missile(launcher, target):
 	missile.global_position = launcher.turret.get_node("MissileSpawn").global_position
 
 	missile.target = target
+
+func start_wave():
+	print("wave completed!")
+
+	missiles_spawned = 0
+	wave_running = true
+	
+	$EnemyMissileCommand.interval = 2.0
+
+func end_wave():
+	wave_running = false
+	print("Wave Completed!")
+	var screen = preload("res://scenes/wave_complete.tscn").instantiate()
+
+	add_child(screen)
+	screen.cities_saved = cities.get_child_count()
+	screen.launchers_left = launchers.get_child_count()
+	screen.missiles_left = count_remaining_missiles()
+	screen.bonus = calculate_bonus()
+
+	screen.show_results()
+
+	await screen.tree_exited
+
+	wave += 1
+	missiles_this_wave += 5
+	start_wave()
+
+func count_remaining_missiles() -> int:
+	var total := 0
+	for launcher in launchers.get_children():
+		if is_instance_valid(launcher):
+			total += launcher.missiles_left
+	return total
+
+func calculate_bonus() -> int:
+	var cities_saved := cities.get_child_count()
+	var launchers_left := launchers.get_child_count()
+	var missiles_left := count_remaining_missiles()
+	return (
+		cities_saved * 100 + 
+		launchers_left * 200 + 
+		missiles_left * 10 +
+		wave * 500 
+	)

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dr3rhd5hndd86"]
+
+[ext_resource type="Script" uid="uid://t2lok7qavlp4" path="res://scripts/missile_command.gd" id="1_w0apa"]
+[ext_resource type="Script" uid="uid://bk1upur3uxniv" path="res://scripts/terrain.gd" id="2_a4tld"]
+[ext_resource type="PackedScene" uid="uid://fucy77twnpwh" path="res://scenes/launcher.tscn" id="2_f8f2d"]
+[ext_resource type="PackedScene" uid="uid://bxfv7wltia5lk" path="res://scenes/city.tscn" id="3_4gtpe"]
+[ext_resource type="Script" uid="uid://bnfxqairwxhva" path="res://scripts/sky.gd" id="3_ginic"]
+[ext_resource type="Script" uid="uid://c5lmironjo2l3" path="res://scripts/moon.gd" id="4_fe3nv"]
+[ext_resource type="Script" uid="uid://cswi0d1muldjm" path="res://scripts/enemy_missile_command.gd" id="6_ginic"]
+
+[node name="MissileCommand" type="Node2D" unique_id=980062569]
+script = ExtResource("1_w0apa")
+
+[node name="Sky" type="Node2D" parent="." unique_id=707882445]
+script = ExtResource("3_ginic")
+
+[node name="Moon" type="Node2D" parent="." unique_id=1777698124]
+script = ExtResource("4_fe3nv")
+
+[node name="TargetMarkers" type="Node2D" parent="." unique_id=1708669173]
+
+[node name="Launchers" type="Node2D" parent="." unique_id=1424267930]
+
+[node name="Launcher1" parent="Launchers" unique_id=859137694 instance=ExtResource("2_f8f2d")]
+
+[node name="Launcher2" parent="Launchers" unique_id=210948664 instance=ExtResource("2_f8f2d")]
+launcher_type = 1
+
+[node name="Launcher3" parent="Launchers" unique_id=2029326397 instance=ExtResource("2_f8f2d")]
+launcher_type = 2
+
+[node name="Terrain" type="Node2D" parent="." unique_id=122470419]
+script = ExtResource("2_a4tld")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain" unique_id=2060855057]
+
+[node name="EnemyMissiles" type="Node2D" parent="." unique_id=1659716792]
+
+[node name="PlayerMissiles" type="Node2D" parent="." unique_id=481893505]
+
+[node name="EnemyMissileCommand" type="Node2D" parent="." unique_id=1423037391]
+script = ExtResource("6_ginic")
+
+[node name="Explosions" type="Node2D" parent="." unique_id=85391534]
+
+[node name="Smoke" type="Node2D" parent="." unique_id=553511382]
+
+[node name="Debris" type="Node2D" parent="." unique_id=1057370443]
+
+[node name="Cities" type="Node2D" parent="." unique_id=1371254940]
+
+[node name="City1" parent="Cities" unique_id=1241098677 instance=ExtResource("3_4gtpe")]
+
+[node name="City2" parent="Cities" unique_id=997331132 instance=ExtResource("3_4gtpe")]
+
+[node name="City3" parent="Cities" unique_id=1657437397 instance=ExtResource("3_4gtpe")]
+
+[node name="City4" parent="Cities" unique_id=1118834983 instance=ExtResource("3_4gtpe")]
+
+[node name="City5" parent="Cities" unique_id=58033253 instance=ExtResource("3_4gtpe")]
+
+[node name="City6" parent="Cities" unique_id=1213667468 instance=ExtResource("3_4gtpe")]
+
+[node name="Ground" type="Node2D" parent="." unique_id=1298495118]
+
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1652896900]
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=2025020306]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1740684716]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=877558695]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="WaveLabel" type="Label" parent="CanvasLayer" unique_id=248143745]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CitiesLabel" type="Label" parent="CanvasLayer" unique_id=1301906450]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AmmoLabel1" type="Label" parent="CanvasLayer" unique_id=46813961]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AmmoLabel2" type="Label" parent="CanvasLayer" unique_id=1404215758]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AmmoLabel3" type="Label" parent="CanvasLayer" unique_id=1854945283]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer" unique_id=697883912]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1140286179]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=1909811456]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=2049380668]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

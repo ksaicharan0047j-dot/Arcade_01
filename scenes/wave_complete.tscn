@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvc7wqm6pdxs6"]
+
+[ext_resource type="Script" uid="uid://cacfl4h1vvydq" path="res://scripts/wave_complete.gd" id="1_tstly"]
+
+[node name="WaveComplete" type="CanvasLayer" unique_id=276357121]
+process_mode = 3
+script = ExtResource("1_tstly")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1288940275]
+offset_right = 1209.0
+offset_bottom = 700.0
+color = Color(0, 0, 0, 1)
+
+[node name="Info" type="Label" parent="." unique_id=1550128369]
+offset_left = 403.0
+offset_top = 120.0
+offset_right = 443.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 40

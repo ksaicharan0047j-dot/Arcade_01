@@ -1,16 +1,18 @@
 extends Node2D
 
-const Shrink_time := 0.20
-const Expand_time := 2.20
-const Hold_time := 0.30
-const Collapse_time := 1.20
-const Fade_time := 0.50
+const Shrink_time := 0.10
+const Expand_time := 0.70
+const Hold_time := 0.10
+const Collapse_time := 0.40
+const Fade_time := 0.20
 
 @export var Start_radius := 28.0
 @export var Min_radius := 20.0
 @export var Max_radius := 120.0
 @export var End_radius := 40.0
 @export var use_shockwave := true
+@onready var hitbox = $Hitbox
+@onready var shape = $Hitbox/CollisionShape2D
 
 var timer := 0.0
 var radius := Start_radius
@@ -80,3 +82,8 @@ func _draw():
 			alpha
 		)
 	)
+
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("enemy_missiles"):
+		area.destroy()

@@ -8,7 +8,6 @@ var fade_alpha := 1.0
 var current_color := Color.WHITE
 
 func _ready():
-	print("Shockwave spawned")
 	queue_redraw()
 
 func _process(delta):

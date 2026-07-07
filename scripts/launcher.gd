@@ -43,7 +43,7 @@ func _process(delta):
 	turret.rotation = lerp_angle(
 		turret.rotation,
 		angle,
-		6.0 * delta
+		12.0 * delta
 	)
 
 	if !fired and abs(turret.rotation - angle) < 0.03:

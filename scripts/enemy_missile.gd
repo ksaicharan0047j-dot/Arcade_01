@@ -8,10 +8,12 @@ var smoke_timer := 0.0
 const SMOKE  = preload("res://scenes/smoke_particle.tscn")
 const EXPLOSION = preload("res://scenes/explosion.tscn")
 func _ready():
+	add_to_group("enemy_missiles")
 	queue_redraw()
 
 func _process(delta):
-	if target == null:
+	if !is_instance_valid(target):
+		queue_free()
 		return
 	flame_flicker += delta * 18.0
 	smoke_timer += delta
@@ -153,3 +155,13 @@ func draw_missile():
 		]),
 		Color(1.0,0.95,0.55)
 	)
+func destroy():
+	var explosion = EXPLOSION.instantiate()
+	explosion.use_shockwave = false
+	explosion.Start_radius = 10
+	explosion.Min_radius = 8
+	explosion.Max_radius = 24
+	explosion.End_radius = 8
+	explosion.global_position = global_position
+	get_parent().call_deferred("add_child", explosion)
+	call_deferred("queue_free")
