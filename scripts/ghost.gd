@@ -21,29 +21,3 @@ func _ready():
 			sprite.play("inky")
 		GhostType.CLYDE:
 			sprite.play("clyde")
-
-func _draw():
-	draw_ghost_eyes()
-
-func draw_ghost_eyes():
-	var offset = look_dir * 1.6
-	draw_circle(
-		Vector2(-5,-7),
-		4,
-		Color.WHITE
-	)
-	draw_circle(
-		Vector2(5,-7),
-		4,
-		Color.WHITE
-	)
-	draw_circle(
-		Vector2(-5,-7) + offset,
-		1.5,
-		Color.BLUE
-	)
-	draw_circle(
-		Vector2(5,-7) + offset,
-		1.5,
-		Color.BLUE
-	)

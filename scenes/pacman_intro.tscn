@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bqf47fpn1145w"]
 
 [ext_resource type="Script" uid="uid://cm41nlssely5w" path="res://scripts/pacman_intro.gd" id="1_uu51o"]
+[ext_resource type="PackedScene" uid="uid://dq1jkb22xe7v5" path="res://scenes/pacman_player.tscn" id="2_8vb3o"]
 
 [node name="PacmanIntro" type="Node2D" unique_id=1954833981]
 script = ExtResource("1_uu51o")
 
-[node name="PacMan" type="Node2D" parent="." unique_id=638036767]
-position = Vector2(-120, 0)
+[node name="PacmanPlayer" parent="." unique_id=476618492 instance=ExtResource("2_8vb3o")]
 
 [node name="Ghosts" type="Node2D" parent="." unique_id=617521569]
 position = Vector2(-220, 0)

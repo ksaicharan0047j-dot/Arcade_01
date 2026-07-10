@@ -2,14 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b66kc65kpc5yu" path="res://scripts/ghost.gd" id="1_t76o2"]
 [ext_resource type="Texture2D" uid="uid://dm6on2wcb7ubk" path="res://sprites/PacManAssets-Ghosts.png" id="2_l5lq6"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t76o2"]
-radius = 28.0
-height = 90.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5lq6"]
-atlas = ExtResource("2_l5lq6")
-region = Rect2(0, 0, 32, 32)
+[ext_resource type="Script" uid="uid://cyubixvuk8o60" path="res://scripts/eyes.gd" id="3_bbnym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbnym"]
 atlas = ExtResource("2_l5lq6")
@@ -22,6 +15,10 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mfnq"]
 atlas = ExtResource("2_l5lq6")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5lq6"]
+atlas = ExtResource("2_l5lq6")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c10vd"]
 atlas = ExtResource("2_l5lq6")
@@ -75,9 +72,6 @@ region = Rect2(96, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5lq6")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_bbnym")
 }, {
 "duration": 1.0,
@@ -85,6 +79,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5mfnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5lq6")
 }],
 "loop": true,
 "name": &"blinky",
@@ -142,16 +139,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t76o2"]
+radius = 28.0
+height = 90.0
+
 [node name="Ghost" type="CharacterBody2D" unique_id=1956434644]
 position = Vector2(505, 264)
 script = ExtResource("1_t76o2")
 
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1345237383]
+position = Vector2(7.6293945e-06, 1.04904175e-05)
+scale = Vector2(2.9531255, 3.2500005)
+sprite_frames = SubResource("SpriteFrames_peq6q")
+animation = &"blinky"
+frame_progress = 0.98285824
+
+[node name="Eyes" type="Node2D" parent="." unique_id=913999760]
+z_index = 1
+script = ExtResource("3_bbnym")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402183048]
 position = Vector2(1, 18)
 shape = SubResource("CapsuleShape2D_t76o2")
-
-[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1345237383]
-position = Vector2(2, 14)
-scale = Vector2(4.3125, 4.4375)
-sprite_frames = SubResource("SpriteFrames_peq6q")
-animation = &"blinky"
