@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cc4guacf0541u"]
+
+[ext_resource type="Script" uid="uid://b66kc65kpc5yu" path="res://scripts/ghost.gd" id="1_t76o2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t76o2"]
+radius = 16.0
+height = 38.0
+
+[node name="Ghost" type="CharacterBody2D" unique_id=1956434644]
+position = Vector2(505, 264)
+script = ExtResource("1_t76o2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402183048]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_t76o2")
+
+[node name="SpriteRoot" type="Node2D" parent="." unique_id=150148492]

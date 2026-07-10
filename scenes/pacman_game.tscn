@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://8bn6i5tbqoaf"]
+
+[ext_resource type="Script" uid="uid://cldngohoynrk6" path="res://scripts/pacman_game.gd" id="1_khqni"]
+[ext_resource type="PackedScene" uid="uid://drexjormxc24p" path="res://scenes/maze.tscn" id="2_cso35"]
+
+[node name="PacmanGame" type="Node2D" unique_id=1208617624]
+script = ExtResource("1_khqni")
+
+[node name="Maze" parent="." unique_id=1213800516 instance=ExtResource("2_cso35")]
+
+[node name="Pellets" type="Node2D" parent="." unique_id=455466324]
+
+[node name="Ghosts" type="Node2D" parent="." unique_id=955381917]
+
+[node name="Pacman" type="CharacterBody2D" parent="." unique_id=1008374713]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1807277474]
+
+[node name="Effects" type="Node2D" parent="." unique_id=1458813323]

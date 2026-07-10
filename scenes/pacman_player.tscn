@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dq1jkb22xe7v5"]
+
+[ext_resource type="Script" uid="uid://ggtnu3qocpxb" path="res://scripts/pacman_player.gd" id="1_28lat"]
+
+[node name="PacmanPlayer" type="Node2D" unique_id=796118609]
+position = Vector2(525, 309)
+script = ExtResource("1_28lat")

@@ -106,7 +106,7 @@ func launch_game():
 			1:
 				get_tree().change_scene_to_file("res://scenes/endless_runner.tscn")
 			2:
-				pass #missile command
+				get_tree().change_scene_to_file("res://scenes/missile_command.tscn")
 			3:
 				get_tree().change_scene_to_file("res://scenes/minessweeper.tscn")
 			4:

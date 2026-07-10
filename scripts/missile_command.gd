@@ -10,6 +10,7 @@ var wave_running := false
 const TARGET_SCENE = preload("res://scenes/target_marker.tscn")
 const PLAYER_MISSILE_SCENE = preload("res://scenes/player_missile.tscn")
 const CITY_SCENE = preload("res://scenes/city.tscn")
+const GAME_Over_Scene = preload("res://scenes/game_over_missile_command.tscn")
 
 
 
@@ -165,4 +166,10 @@ func check_game_over():
 		game_over()
 
 func game_over():
+	wave_running = false
+	var scene = GAME_Over_Scene.instantiate()
 	
+	add_child(scene)
+	scene.wave = wave
+	scene.score = calculate_bonus()
+	scene.show_results()
