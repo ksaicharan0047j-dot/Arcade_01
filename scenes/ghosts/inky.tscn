@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://743tysvvvf4g"]
+
+[ext_resource type="Script" uid="uid://bh8xja1p6tvsf" path="res://scripts/inky.gd" id="1_r1m7r"]
+
+[node name="Inky" type="Node2D" unique_id=994260535]
+script = ExtResource("1_r1m7r")

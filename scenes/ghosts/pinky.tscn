@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpibpwqrtif5b"]
+
+[ext_resource type="Script" uid="uid://hpjvg8hb6b8r" path="res://scripts/pinky.gd" id="1_7esn6"]
+
+[node name="Pinky" type="Node2D" unique_id=201293043]
+script = ExtResource("1_7esn6")

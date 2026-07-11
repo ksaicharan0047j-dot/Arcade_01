@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://p7taeixdw8xd"]
+
+[ext_resource type="TileSet" uid="uid://cl4u73c0kon5x" path="res://tilemaps/maze_tileset.tres" id="1_wx6fo"]
+
+[node name="Maze" type="Node2D" unique_id=1972728590]
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=1070229528]
+tile_set = ExtResource("1_wx6fo")
+
+[node name="Pellets" type="TileMapLayer" parent="." unique_id=676437467]
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=119498219]
+
+[node name="PacmanSpawn" type="Marker2D" parent="SpawnPoints" unique_id=499019156]
+
+[node name="BlinkySpawn" type="Marker2D" parent="SpawnPoints" unique_id=160490762]
+
+[node name="PinkySpawn" type="Marker2D" parent="SpawnPoints" unique_id=2143280468]
+
+[node name="InkySpawn" type="Marker2D" parent="SpawnPoints" unique_id=3491134]
+
+[node name="ClydeSpawn" type="Marker2D" parent="SpawnPoints" unique_id=746060709]
+
+[node name="WrapTunnels" type="Node2D" parent="." unique_id=2046088136]
+
+[node name="LeftTunnel" type="Marker2D" parent="WrapTunnels" unique_id=2036923301]
+
+[node name="RightTunnel" type="Marker2D" parent="WrapTunnels" unique_id=2035708121]
+
+[node name="FruitSpawn" type="Marker2D" parent="." unique_id=1958026257]

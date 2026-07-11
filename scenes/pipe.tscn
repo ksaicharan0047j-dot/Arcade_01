@@ -6,6 +6,7 @@
 size = Vector2(40, 150)
 
 [node name="Pipe" type="Area2D" unique_id=418277232]
+position = Vector2(560, 410)
 script = ExtResource("1_8x3ej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071978386]

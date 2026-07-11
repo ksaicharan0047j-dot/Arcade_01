@@ -1,19 +1,33 @@
-[gd_scene format=3 uid="uid://8bn6i5tbqoaf"]
+[gd_scene format=3 uid="uid://cvniiyab5j78s"]
 
-[ext_resource type="Script" uid="uid://cldngohoynrk6" path="res://scripts/pacman_game.gd" id="1_khqni"]
-[ext_resource type="PackedScene" uid="uid://drexjormxc24p" path="res://scenes/maze.tscn" id="2_cso35"]
+[ext_resource type="Script" uid="uid://dyvfb520ernti" path="res://scripts/pacman_game.gd" id="1_khqni"]
+[ext_resource type="PackedScene" uid="uid://p7taeixdw8xd" path="res://scenes/maze/maze.tscn" id="2_yg7e2"]
+[ext_resource type="PackedScene" uid="uid://dq1jkb22xe7v5" path="res://scenes/pacman_player.tscn" id="3_r51r3"]
+[ext_resource type="PackedScene" uid="uid://ontehmfegnea" path="res://scenes/ghosts/blinky.tscn" id="4_edeki"]
+[ext_resource type="PackedScene" uid="uid://bpibpwqrtif5b" path="res://scenes/ghosts/pinky.tscn" id="5_8e457"]
+[ext_resource type="PackedScene" uid="uid://743tysvvvf4g" path="res://scenes/ghosts/inky.tscn" id="6_hlpqx"]
+[ext_resource type="PackedScene" uid="uid://5k4dcxd4tcxx" path="res://scenes/ghosts/clyde.tscn" id="7_r2pla"]
+[ext_resource type="PackedScene" uid="uid://b4hltqyaq7qpj" path="res://scenes/ui/hud.tscn" id="8_fn0hl"]
 
-[node name="PacmanGame" type="Node2D" unique_id=1208617624]
+[node name="PacmanGame" type="Node2D" unique_id=1355961704]
 script = ExtResource("1_khqni")
 
-[node name="Maze" parent="." unique_id=1213800516 instance=ExtResource("2_cso35")]
+[node name="Maze" parent="." unique_id=1966717181 instance=ExtResource("2_yg7e2")]
 
-[node name="Pellets" type="Node2D" parent="." unique_id=455466324]
+[node name="PacmanPlayer" parent="." unique_id=1597438495 instance=ExtResource("3_r51r3")]
 
-[node name="Ghosts" type="Node2D" parent="." unique_id=955381917]
+[node name="Ghosts" type="Node2D" parent="." unique_id=1189035913]
 
-[node name="Pacman" type="CharacterBody2D" parent="." unique_id=1008374713]
+[node name="Blinky" parent="Ghosts" unique_id=441969753 instance=ExtResource("4_edeki")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1807277474]
+[node name="Pinky" parent="Ghosts" unique_id=201293043 instance=ExtResource("5_8e457")]
 
-[node name="Effects" type="Node2D" parent="." unique_id=1458813323]
+[node name="Inky" parent="Ghosts" unique_id=994260535 instance=ExtResource("6_hlpqx")]
+
+[node name="Clyde" parent="Ghosts" unique_id=1577181840 instance=ExtResource("7_r2pla")]
+
+[node name="Pellets" type="Node2D" parent="." unique_id=1889074746]
+
+[node name="Effects" type="Node2D" parent="." unique_id=778486450]
+
+[node name="UI" parent="." unique_id=1142150715 instance=ExtResource("8_fn0hl")]

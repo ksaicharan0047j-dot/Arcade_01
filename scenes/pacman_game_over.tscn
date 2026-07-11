@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://kxje7r6kxki4"]
-
-[ext_resource type="Script" uid="uid://3oe3fxhh68o3" path="res://scripts/pacman_game_over.gd" id="1_gwdpc"]
-
-[node name="PacmanGameOver" type="Node2D" unique_id=1978569089]
-script = ExtResource("1_gwdpc")

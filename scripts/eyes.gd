@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 var look_dir := Vector2.RIGHT
 

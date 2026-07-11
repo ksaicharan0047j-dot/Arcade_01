@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cfv68o7voghvv"]
+
+[ext_resource type="Script" uid="uid://b4bhlfcp3gkbr" path="res://scripts/ghost_base.gd" id="1_ikmm6"]
+
+[node name="GhostBase" type="Node2D" unique_id=519683498]
+script = ExtResource("1_ikmm6")

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://drexjormxc24p"]
-
-[ext_resource type="TileSet" uid="uid://cl4u73c0kon5x" path="res://tilemaps/maze_tileset.tres" id="1_fgl6e"]
-[ext_resource type="Script" uid="uid://djiatnhjc4k7w" path="res://scripts/maze.gd" id="1_ol5qi"]
-
-[node name="Maze" type="TileMapLayer" unique_id=1213800516]
-tile_set = ExtResource("1_fgl6e")
-script = ExtResource("1_ol5qi")

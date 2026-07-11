@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ontehmfegnea"]
+
+[ext_resource type="Script" uid="uid://dy0egrpaxh3af" path="res://scripts/blinky.gd" id="1_8lv0q"]
+
+[node name="Blinky" type="Node2D" unique_id=441969753]
+script = ExtResource("1_8lv0q")

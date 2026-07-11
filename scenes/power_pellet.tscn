@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cgq4pjqk27agv"]
-
-[ext_resource type="Script" uid="uid://3t73uqeq2s8n" path="res://scripts/power_pellet.gd" id="1_igpl4"]
-
-[node name="PowerPellet" type="Node2D" unique_id=583126089]
-script = ExtResource("1_igpl4")
