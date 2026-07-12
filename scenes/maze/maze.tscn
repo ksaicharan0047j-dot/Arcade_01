@@ -40,14 +40,19 @@ position = Vector2(1041, 353)
 
 [node name="LeftTrigger" type="Area2D" parent="WrapTunnels" unique_id=1644351941]
 position = Vector2(59, 320)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WrapTunnels/LeftTrigger" unique_id=2078634645]
 shape = SubResource("RectangleShape2D_wx6fo")
 
 [node name="RightTrigger" type="Area2D" parent="WrapTunnels" unique_id=1505274]
 position = Vector2(1087, 352)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WrapTunnels/RightTrigger" unique_id=1666158925]
 shape = SubResource("RectangleShape2D_6yn8l")
 
 [node name="FruitSpawn" type="Marker2D" parent="." unique_id=1958026257]
+
+[connection signal="body_entered" from="WrapTunnels/LeftTrigger" to="." method="_on_left_trigger_body_entered"]
+[connection signal="body_entered" from="WrapTunnels/RightTrigger" to="." method="_on_right_trigger_body_entered"]

@@ -1,11 +1,15 @@
 extends Node2D
 
+@onready var left_tunnel: Marker2D = $WrapTunnels/LeftTunnel
+@onready var right_tunnel: Marker2D = $WrapTunnels/RightTunnel
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _ready():
 	pass
+
+func _on_left_trigger_body_entered(body):
+	if body.name == "PacmanPlayer":
+		body.global_position = right_tunnel.global_position
+
+func _on_right_trigger_body_entered(body):
+	if body.name == "PacmanPlayer":
+		body.global_position = left_tunnel.global_position

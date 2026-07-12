@@ -213,6 +213,6 @@ The collection will keep growing with more classic arcade games and original ide
 this whole project is made by me, so this project has bugs such as no highscore detection, collision bugs, i promise that this project will be clean in the next update and the pacman game is under construction right now, the next update will fix all the bugs and pacman game will be add to the game i request to consider all the other games which are working properly...
 THANK YOU
 sai charan..
-###Images
+## Images
 ![menu](images/main_menu.png)
 ![Pulse Survival](images/pulse_survival.png)
