@@ -101,23 +101,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yneaq"]
-radius = 7.0
+radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqauw"]
 radius = 9.0
 
 [node name="PacmanPlayer" type="CharacterBody2D" unique_id=118840343]
 position = Vector2(572, 323)
-collision_mask = 2
 script = ExtResource("1_28lat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1197859892]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h6pd4")
 animation = &"move"
 autoplay = "move"
 frame_progress = 0.5949348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478224308]
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_yneaq")
 
 [node name="EatArea" type="Area2D" parent="." unique_id=597478691]
