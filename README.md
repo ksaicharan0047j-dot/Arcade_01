@@ -214,5 +214,5 @@ this whole project is made by me, so this project has bugs such as no highscore 
 THANK YOU
 sai charan..
 ## Images
-![menu](images/main_menu.png)
+![Menu](images/main_menu.png)
 ![Pulse Survival](images/pulse_survival.png)

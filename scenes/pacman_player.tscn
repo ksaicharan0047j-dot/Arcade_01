@@ -101,10 +101,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yneaq"]
-radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqauw"]
-radius = 9.0
+radius = 13.0
 
 [node name="PacmanPlayer" type="CharacterBody2D" unique_id=118840343]
 position = Vector2(572, 323)
@@ -112,7 +111,7 @@ collision_mask = 3
 script = ExtResource("1_28lat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1197859892]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_h6pd4")
 animation = &"move"
 autoplay = "move"
@@ -125,16 +124,17 @@ shape = SubResource("CircleShape2D_yneaq")
 [node name="EatArea" type="Area2D" parent="." unique_id=597478691]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea" unique_id=1901075259]
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_hqauw")
 
 [node name="RayUp" type="RayCast2D" parent="." unique_id=1385686057]
-target_position = Vector2(0, -6)
+target_position = Vector2(0, -28)
 
 [node name="RayDown" type="RayCast2D" parent="." unique_id=112170136]
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 28)
 
-[node name="RayCLeft" type="RayCast2D" parent="." unique_id=1011769320]
-target_position = Vector2(-16, 0)
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=1011769320]
+target_position = Vector2(-28, 0)
 
 [node name="RayRight" type="RayCast2D" parent="." unique_id=1008914653]
-target_position = Vector2(16, 0)
+target_position = Vector2(28, 0)
