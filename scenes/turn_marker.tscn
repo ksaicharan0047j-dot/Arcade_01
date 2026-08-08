@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://c6p5vsdmg6t3x"]
 
+[ext_resource type="Script" uid="uid://dd4uso4cu23xl" path="res://scripts/turn_marker.gd" id="1_kgg2p"]
+
 [node name="TurnMarker" type="Marker2D" unique_id=174001132]
+script = ExtResource("1_kgg2p")

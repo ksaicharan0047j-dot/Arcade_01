@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://djiatnhjc4k7w" path="res://scripts/maze.gd" id="1_6yn8l"]
 [ext_resource type="TileSet" uid="uid://cl4u73c0kon5x" path="res://tilemaps/maze_tileset.tres" id="1_wx6fo"]
 [ext_resource type="PackedScene" uid="uid://c6p5vsdmg6t3x" path="res://scenes/turn_marker.tscn" id="3_xtbws"]
-[ext_resource type="Script" uid="uid://dd4uso4cu23xl" path="res://scripts/turn_marker.gd" id="4_s2xl6"]
-[ext_resource type="Script" uid="uid://6ls8ef48oyep" path="res://scripts/marker_linker.gd" id="6_d7tnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx6fo"]
 size = Vector2(24, 36)
@@ -47,377 +45,520 @@ shape = SubResource("RectangleShape2D_6yn8l")
 
 [node name="Markers" type="Node2D" parent="." unique_id=1343705902]
 
-[node name="M001" parent="Markers" unique_id=174001132 instance=ExtResource("3_xtbws")]
+[node name="M001" parent="Markers" unique_id=174001132 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(144, 320)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M017")
+down = NodePath("../M002")
+left = NodePath("../PacmanSpawnLeft")
+marker_name = "M001"
 
-[node name="M002" parent="Markers" unique_id=1723103943 instance=ExtResource("3_xtbws")]
+[node name="M002" parent="Markers" unique_id=1723103943 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(144, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M001")
+left = NodePath("../M003")
+right = NodePath("../M008")
+marker_name = "M002"
 
-[node name="M003" parent="Markers" unique_id=1169927500 instance=ExtResource("3_xtbws")]
+[node name="M003" parent="Markers" unique_id=1169927500 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(80, 400)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M004")
+right = NodePath("../M002")
+marker_name = "M003"
 
-[node name="M004" parent="Markers" unique_id=409173058 instance=ExtResource("3_xtbws")]
+[node name="M004" parent="Markers" unique_id=409173058 node_paths=PackedStringArray("up", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(80, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M003")
+right = NodePath("../M005")
+marker_name = "M004"
 
-[node name="M005" parent="Markers" unique_id=287953119 instance=ExtResource("3_xtbws")]
+[node name="M005" parent="Markers" unique_id=287953119 node_paths=PackedStringArray("up", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(224, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M006")
+left = NodePath("../M004")
+marker_name = "M005"
 
-[node name="M006" parent="Markers" unique_id=859648232 instance=ExtResource("3_xtbws")]
+[node name="M006" parent="Markers" unique_id=859648232 node_paths=PackedStringArray("up", "down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(224, 464)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M007")
+down = NodePath("../M005")
+right = NodePath("../M031")
+marker_name = "M006"
 
-[node name="M007" parent="Markers" unique_id=1809501457 instance=ExtResource("3_xtbws")]
+[node name="M007" parent="Markers" unique_id=1809501457 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(224, 400)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M006")
+left = NodePath("../M008")
+right = NodePath("../M009")
+marker_name = "M007"
 
-[node name="M008" parent="Markers" unique_id=786328950 instance=ExtResource("3_xtbws")]
+[node name="M008" parent="Markers" unique_id=786328950 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(208, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M010")
+left = NodePath("../M002")
+right = NodePath("../M007")
+marker_name = "M008"
 
-[node name="M009" parent="Markers" unique_id=1427174991 instance=ExtResource("3_xtbws")]
+[node name="M009" parent="Markers" unique_id=1427174991 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(240, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M011")
+left = NodePath("../M007")
+right = NodePath("../M012")
+marker_name = "M009"
 
-[node name="M010" parent="Markers" unique_id=2018990836 instance=ExtResource("3_xtbws")]
+[node name="M010" parent="Markers" unique_id=2018990836 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(208, 336)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M008")
+right = NodePath("../M011")
+marker_name = "M010"
 
-[node name="M011" parent="Markers" unique_id=2056196941 instance=ExtResource("3_xtbws")]
+[node name="M011" parent="Markers" unique_id=2056196941 node_paths=PackedStringArray("down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(240, 336)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M009")
+left = NodePath("../M010")
+marker_name = "M011"
 
-[node name="M012" parent="Markers" unique_id=643858006 instance=ExtResource("3_xtbws")]
+[node name="M012" parent="Markers" unique_id=643858006 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(304, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M013")
+left = NodePath("../M009")
+right = NodePath("../M045")
+marker_name = "M012"
 
-[node name="M013" parent="Markers" unique_id=186090927 instance=ExtResource("3_xtbws")]
+[node name="M013" parent="Markers" unique_id=186090927 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(304, 192)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M012")
+left = NodePath("../M021")
+right = NodePath("../M025")
+marker_name = "M013"
 
-[node name="M014" parent="Markers" unique_id=624386555 instance=ExtResource("3_xtbws")]
+[node name="M014" parent="Markers" unique_id=624386555 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(160, 192)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M015")
+right = NodePath("../M021")
+marker_name = "M014"
 
-[node name="M015" parent="Markers" unique_id=2140148646 instance=ExtResource("3_xtbws")]
+[node name="M015" parent="Markers" unique_id=2140148646 node_paths=PackedStringArray("up", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(160, 240)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M014")
+left = NodePath("../M017")
+marker_name = "M015"
 
-[node name="M016" parent="Markers" unique_id=1877267006 instance=ExtResource("3_xtbws")]
+[node name="M016" parent="Markers" unique_id=1877267006 node_paths=PackedStringArray("up", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(80, 240)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M018")
+right = NodePath("../M017")
+marker_name = "M016"
 
-[node name="M017" parent="Markers" unique_id=718449664 instance=ExtResource("3_xtbws")]
+[node name="M017" parent="Markers" unique_id=718449664 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(144, 240)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M001")
+left = NodePath("../M016")
+right = NodePath("../M015")
+marker_name = "M017"
 
-[node name="M018" parent="Markers" unique_id=1556168920 instance=ExtResource("3_xtbws")]
+[node name="M018" parent="Markers" unique_id=1556168920 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(80, 80)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M016")
+right = NodePath("../M019")
+marker_name = "M018"
 
-[node name="M019" parent="Markers" unique_id=781401425 instance=ExtResource("3_xtbws")]
+[node name="M019" parent="Markers" unique_id=781401425 node_paths=PackedStringArray("down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(160, 80)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M020")
+left = NodePath("../M018")
+marker_name = "M019"
 
-[node name="M020" parent="Markers" unique_id=667624919 instance=ExtResource("3_xtbws")]
+[node name="M020" parent="Markers" unique_id=667624919 node_paths=PackedStringArray("up", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(160, 128)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M019")
+right = NodePath("../M022")
+marker_name = "M020"
 
-[node name="M021" parent="Markers" unique_id=1019429286 instance=ExtResource("3_xtbws")]
+[node name="M021" parent="Markers" unique_id=1019429286 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(240, 192)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M022")
+left = NodePath("../M014")
+right = NodePath("../M013")
+marker_name = "M021"
 
-[node name="M022" parent="Markers" unique_id=325075051 instance=ExtResource("3_xtbws")]
+[node name="M022" parent="Markers" unique_id=325075051 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(240, 128)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M023")
+down = NodePath("../M021")
+left = NodePath("../M020")
+marker_name = "M022"
 
-[node name="M023" parent="Markers" unique_id=482602003 instance=ExtResource("3_xtbws")]
+[node name="M023" parent="Markers" unique_id=482602003 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(240, 80)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M022")
+right = NodePath("../M024")
+marker_name = "M023"
 
-[node name="M024" parent="Markers" unique_id=899210532 instance=ExtResource("3_xtbws")]
+[node name="M024" parent="Markers" unique_id=899210532 node_paths=PackedStringArray("down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(465, 80)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M025")
+left = NodePath("../M023")
+marker_name = "M024"
 
-[node name="M025" parent="Markers" unique_id=1606351594 instance=ExtResource("3_xtbws")]
+[node name="M025" parent="Markers" unique_id=1606351594 node_paths=PackedStringArray("up", "down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(464, 192)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M024")
+down = NodePath("../M026")
+left = NodePath("../M013")
+right = NodePath("../M041")
+marker_name = "M025"
 
-[node name="M026" parent="Markers" unique_id=1315086152 instance=ExtResource("3_xtbws")]
+[node name="M026" parent="Markers" unique_id=1315086152 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(464, 320)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M025")
+down = NodePath("../M029")
+left = NodePath("../M027")
+marker_name = "M026"
 
-[node name="M027" parent="Markers" unique_id=2082830862 instance=ExtResource("3_xtbws")]
+[node name="M027" parent="Markers" unique_id=2082830862 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(432, 320)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M028")
+right = NodePath("../M026")
+marker_name = "M027"
 
-[node name="M028" parent="Markers" unique_id=1353922830 instance=ExtResource("3_xtbws")]
+[node name="M028" parent="Markers" unique_id=1353922830 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(432, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M027")
+left = NodePath("../M045")
+right = NodePath("../M029")
+marker_name = "M028"
 
-[node name="M029" parent="Markers" unique_id=195618164 instance=ExtResource("3_xtbws")]
+[node name="M029" parent="Markers" unique_id=195618164 node_paths=PackedStringArray("up", "down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(464, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M026")
+down = NodePath("../M030")
+left = NodePath("../M028")
+right = NodePath("../M035")
+marker_name = "M029"
 
-[node name="M030" parent="Markers" unique_id=1048599017 instance=ExtResource("3_xtbws")]
+[node name="M030" parent="Markers" unique_id=1048599017 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(464, 464)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M029")
+down = NodePath("../M033")
+left = NodePath("../M031")
+marker_name = "M030"
 
-[node name="M031" parent="Markers" unique_id=950494116 instance=ExtResource("3_xtbws")]
+[node name="M031" parent="Markers" unique_id=950494116 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(336, 464)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M032")
+left = NodePath("../M006")
+right = NodePath("../M030")
+marker_name = "M031"
 
-[node name="M032" parent="Markers" unique_id=1968185019 instance=ExtResource("3_xtbws")]
+[node name="M032" parent="Markers" unique_id=1968185019 node_paths=PackedStringArray("up", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(338, 511)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M031")
+right = NodePath("../M033")
+marker_name = "M032"
 
-[node name="M033" parent="Markers" unique_id=2109415320 instance=ExtResource("3_xtbws")]
+[node name="M033" parent="Markers" unique_id=2109415320 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(464, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M030")
+left = NodePath("../M032")
+right = NodePath("../M034")
+marker_name = "M033"
 
-[node name="M034" parent="Markers" unique_id=443059826 instance=ExtResource("3_xtbws")]
+[node name="M034" parent="Markers" unique_id=443059826 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(576, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M035")
+left = NodePath("../M033")
+right = NodePath("../M056")
+marker_name = "M034"
 
-[node name="M035" parent="Markers" unique_id=1317795120 instance=ExtResource("3_xtbws")]
+[node name="M035" parent="Markers" unique_id=1317795120 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(576, 400)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M034")
+left = NodePath("../M029")
+right = NodePath("../M036")
+marker_name = "M035"
 
-[node name="M036" parent="Markers" unique_id=1066808251 instance=ExtResource("3_xtbws")]
+[node name="M036" parent="Markers" unique_id=1066808251 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(592, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M037")
+left = NodePath("../M035")
+right = NodePath("../M052")
+marker_name = "M036"
 
-[node name="M037" parent="Markers" unique_id=738957158 instance=ExtResource("3_xtbws")]
+[node name="M037" parent="Markers" unique_id=738957158 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(592, 336)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M040")
+down = NodePath("../M036")
+left = NodePath("../M038")
+marker_name = "M037"
 
-[node name="M038" parent="Markers" unique_id=1596077671 instance=ExtResource("3_xtbws")]
+[node name="M038" parent="Markers" unique_id=1596077671 node_paths=PackedStringArray("up", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(528, 336)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M039")
+right = NodePath("../M037")
+marker_name = "M038"
 
-[node name="M039" parent="Markers" unique_id=191293339 instance=ExtResource("3_xtbws")]
+[node name="M039" parent="Markers" unique_id=191293339 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(528, 256)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M038")
+right = NodePath("../M040")
+marker_name = "M039"
 
-[node name="M040" parent="Markers" unique_id=1248495015 instance=ExtResource("3_xtbws")]
+[node name="M040" parent="Markers" unique_id=1248495015 node_paths=PackedStringArray("up", "down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(592, 256)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M041")
+down = NodePath("../M037")
+left = NodePath("../M039")
+marker_name = "M040"
 
-[node name="M041" parent="Markers" unique_id=296739704 instance=ExtResource("3_xtbws")]
+[node name="M041" parent="Markers" unique_id=296739704 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(592, 192)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M040")
+left = NodePath("../M025")
+right = NodePath("../M042")
+marker_name = "M041"
 
-[node name="M042" parent="Markers" unique_id=285584569 instance=ExtResource("3_xtbws")]
+[node name="M042" parent="Markers" unique_id=285584569 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(608, 192)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M043")
+left = NodePath("../M041")
+right = NodePath("../M047")
+marker_name = "M042"
 
-[node name="M043" parent="Markers" unique_id=1652133558 instance=ExtResource("3_xtbws")]
+[node name="M043" parent="Markers" unique_id=1652133558 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(608, 80)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M042")
+left = NodePath("../M024")
+right = NodePath("../M044")
+marker_name = "M043"
 
-[node name="M044" parent="Markers" unique_id=1203043931 instance=ExtResource("3_xtbws")]
+[node name="M044" parent="Markers" unique_id=1203043931 node_paths=PackedStringArray("down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(704, 81)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M047")
+left = NodePath("../M043")
+marker_name = "M044"
 
-[node name="M045" parent="Markers" unique_id=296393194 instance=ExtResource("3_xtbws")]
+[node name="M045" parent="Markers" unique_id=296393194 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(368, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M046")
+left = NodePath("../M012")
+right = NodePath("../M028")
+marker_name = "M045"
 
-[node name="M046" parent="Markers" unique_id=1417319088 instance=ExtResource("3_xtbws")]
+[node name="M046" parent="Markers" unique_id=1417319088 node_paths=PackedStringArray("down") instance=ExtResource("3_xtbws")]
 position = Vector2(368, 320)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M045")
+marker_name = "M046"
 
 [node name="M047" parent="Markers" unique_id=440545391 instance=ExtResource("3_xtbws")]
 position = Vector2(704, 192)
-script = ExtResource("4_s2xl6")
+marker_name = "M047"
 
-[node name="M048" parent="Markers" unique_id=740909917 instance=ExtResource("3_xtbws")]
+[node name="M048" parent="Markers" unique_id=740909917 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(752, 192)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M080")
+left = NodePath("../M078")
+right = NodePath("../M062")
+marker_name = "M048"
 
-[node name="M049" parent="Markers" unique_id=2044752156 instance=ExtResource("3_xtbws")]
+[node name="M049" parent="Markers" unique_id=2044752156 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(752, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M080")
+left = NodePath("../M050")
+right = NodePath("../M059")
+marker_name = "M049"
 
-[node name="M050" parent="Markers" unique_id=83074756 instance=ExtResource("3_xtbws")]
+[node name="M050" parent="Markers" unique_id=83074756 node_paths=PackedStringArray("down", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(704, 400)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M055")
+left = NodePath("../M051")
+right = NodePath("../M049")
+marker_name = "M050"
 
-[node name="M051" parent="Markers" unique_id=821077290 instance=ExtResource("3_xtbws")]
+[node name="M051" parent="Markers" unique_id=821077290 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(688, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M054")
+left = NodePath("../M052")
+right = NodePath("../M050")
+marker_name = "M051"
 
-[node name="M052" parent="Markers" unique_id=1199069291 instance=ExtResource("3_xtbws")]
+[node name="M052" parent="Markers" unique_id=1199069291 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(656, 400)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M053")
+left = NodePath("../M036")
+right = NodePath("../M051")
+marker_name = "M052"
 
-[node name="M053" parent="Markers" unique_id=861703567 instance=ExtResource("3_xtbws")]
+[node name="M053" parent="Markers" unique_id=861703567 node_paths=PackedStringArray("down", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(656, 336)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M052")
+right = NodePath("../M054")
+marker_name = "M053"
 
-[node name="M054" parent="Markers" unique_id=1413122507 instance=ExtResource("3_xtbws")]
+[node name="M054" parent="Markers" unique_id=1413122507 node_paths=PackedStringArray("down", "left") instance=ExtResource("3_xtbws")]
 position = Vector2(688, 336)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M051")
+left = NodePath("../M053")
+marker_name = "M054"
 
-[node name="M055" parent="Markers" unique_id=83654377 instance=ExtResource("3_xtbws")]
+[node name="M055" parent="Markers" unique_id=83654377 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(704, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M050")
+left = NodePath("../M056")
+right = NodePath("../M058")
+marker_name = "M055"
 
-[node name="M056" parent="Markers" unique_id=754546057 instance=ExtResource("3_xtbws")]
+[node name="M056" parent="Markers" unique_id=754546057 node_paths=PackedStringArray("up", "left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(640, 512)
-script = ExtResource("4_s2xl6")
+up = NodePath("../M057")
+left = NodePath("../M034")
+right = NodePath("../M055")
+marker_name = "M056"
 
-[node name="M057" parent="Markers" unique_id=417431711 instance=ExtResource("3_xtbws")]
+[node name="M057" parent="Markers" unique_id=417431711 node_paths=PackedStringArray("down") instance=ExtResource("3_xtbws")]
 position = Vector2(640, 464)
-script = ExtResource("4_s2xl6")
+down = NodePath("../M056")
+marker_name = "M057"
 
 [node name="M058" parent="Markers" unique_id=986081930 instance=ExtResource("3_xtbws")]
 position = Vector2(816, 512)
-script = ExtResource("4_s2xl6")
+marker_name = "M058"
 
 [node name="M059" parent="Markers" unique_id=1319757254 instance=ExtResource("3_xtbws")]
 position = Vector2(816, 400)
-script = ExtResource("4_s2xl6")
+marker_name = "M059"
 
 [node name="M060" parent="Markers" unique_id=541834051 instance=ExtResource("3_xtbws")]
 position = Vector2(880, 512)
-script = ExtResource("4_s2xl6")
+marker_name = "M060"
 
 [node name="M061" parent="Markers" unique_id=492633002 instance=ExtResource("3_xtbws")]
 position = Vector2(880, 400)
-script = ExtResource("4_s2xl6")
+marker_name = "M061"
 
 [node name="M062" parent="Markers" unique_id=692689038 instance=ExtResource("3_xtbws")]
 position = Vector2(864, 192)
-script = ExtResource("4_s2xl6")
+marker_name = "M062"
 
 [node name="M063" parent="Markers" unique_id=390493603 instance=ExtResource("3_xtbws")]
 position = Vector2(864, 80)
-script = ExtResource("4_s2xl6")
+marker_name = "M063"
 
 [node name="M064" parent="Markers" unique_id=1431740910 instance=ExtResource("3_xtbws")]
 position = Vector2(864, 144)
-script = ExtResource("4_s2xl6")
+marker_name = "M064"
 
 [node name="M065" parent="Markers" unique_id=1755747668 instance=ExtResource("3_xtbws")]
 position = Vector2(944, 144)
-script = ExtResource("4_s2xl6")
+marker_name = "M065"
 
 [node name="M066" parent="Markers" unique_id=1939340522 instance=ExtResource("3_xtbws")]
 position = Vector2(944, 80)
-script = ExtResource("4_s2xl6")
+marker_name = "M066"
 
 [node name="M067" parent="Markers" unique_id=969568234 instance=ExtResource("3_xtbws")]
 position = Vector2(896, 400)
-script = ExtResource("4_s2xl6")
+marker_name = "M067"
 
 [node name="M068" parent="Markers" unique_id=1273023736 instance=ExtResource("3_xtbws")]
 position = Vector2(896, 208)
-script = ExtResource("4_s2xl6")
+marker_name = "M068"
 
 [node name="M069" parent="Markers" unique_id=1666257943 instance=ExtResource("3_xtbws")]
 position = Vector2(880, 208)
-script = ExtResource("4_s2xl6")
+marker_name = "M069"
 
 [node name="M070" parent="Markers" unique_id=1333462691 instance=ExtResource("3_xtbws")]
 position = Vector2(896, 432)
-script = ExtResource("4_s2xl6")
+marker_name = "M070"
 
 [node name="M071" parent="Markers" unique_id=1870611219 instance=ExtResource("3_xtbws")]
 position = Vector2(944, 432)
-script = ExtResource("4_s2xl6")
+marker_name = "M071"
 
 [node name="M072" parent="Markers" unique_id=440761677 instance=ExtResource("3_xtbws")]
 position = Vector2(944, 400)
-script = ExtResource("4_s2xl6")
+marker_name = "M072"
 
 [node name="M073" parent="Markers" unique_id=1949004123 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 400)
-script = ExtResource("4_s2xl6")
+marker_name = "M073"
 
 [node name="M074" parent="Markers" unique_id=300789125 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 432)
-script = ExtResource("4_s2xl6")
+marker_name = "M074"
 
 [node name="M075" parent="Markers" unique_id=796119883 instance=ExtResource("3_xtbws")]
 position = Vector2(1072, 432)
-script = ExtResource("4_s2xl6")
+marker_name = "M075"
 
 [node name="M076" parent="Markers" unique_id=1818999673 instance=ExtResource("3_xtbws")]
 position = Vector2(1072, 512)
-script = ExtResource("4_s2xl6")
+marker_name = "M076"
 
 [node name="M077" parent="Markers" unique_id=758896677 instance=ExtResource("3_xtbws")]
 position = Vector2(864, 208)
-script = ExtResource("4_s2xl6")
+marker_name = "M077"
 
 [node name="M078" parent="Markers" unique_id=368173692 instance=ExtResource("3_xtbws")]
 position = Vector2(736, 192)
-script = ExtResource("4_s2xl6")
+marker_name = "M078"
 
 [node name="M079" parent="Markers" unique_id=1390619933 instance=ExtResource("3_xtbws")]
 position = Vector2(736, 224)
-script = ExtResource("4_s2xl6")
+marker_name = "M079"
 
 [node name="M080" parent="Markers" unique_id=1066011516 instance=ExtResource("3_xtbws")]
 position = Vector2(752, 224)
-script = ExtResource("4_s2xl6")
+marker_name = "M080"
 
 [node name="M081" parent="Markers" unique_id=1834005467 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 80)
-script = ExtResource("4_s2xl6")
+marker_name = "M081"
 
 [node name="M082" parent="Markers" unique_id=1107638343 instance=ExtResource("3_xtbws")]
 position = Vector2(1072, 80)
-script = ExtResource("4_s2xl6")
+marker_name = "M082"
 
 [node name="M083" parent="Markers" unique_id=104953870 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 208)
-script = ExtResource("4_s2xl6")
+marker_name = "M083"
 
 [node name="M084" parent="Markers" unique_id=600767030 instance=ExtResource("3_xtbws")]
 position = Vector2(1072, 208)
-script = ExtResource("4_s2xl6")
+marker_name = "M084"
 
 [node name="M085" parent="Markers" unique_id=1101911964 instance=ExtResource("3_xtbws")]
 position = Vector2(1072, 272)
-script = ExtResource("4_s2xl6")
+marker_name = "M085"
 
 [node name="M086" parent="Markers" unique_id=785668039 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 272)
-script = ExtResource("4_s2xl6")
+marker_name = "M086"
 
 [node name="M087" parent="Markers" unique_id=2034099625 instance=ExtResource("3_xtbws")]
 position = Vector2(960, 272)
-script = ExtResource("4_s2xl6")
+marker_name = "M087"
 
 [node name="M088" parent="Markers" unique_id=1365297459 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 336)
-script = ExtResource("4_s2xl6")
+marker_name = "M088"
 
 [node name="M089" parent="Markers" unique_id=950819716 instance=ExtResource("3_xtbws")]
 position = Vector2(960, 336)
-script = ExtResource("4_s2xl6")
+marker_name = "M089"
 
 [node name="M090" parent="Markers" unique_id=198137316 instance=ExtResource("3_xtbws")]
 position = Vector2(1008, 352)
-script = ExtResource("4_s2xl6")
+marker_name = "M090"
 
-[node name="MarkerLinker" type="Node2D" parent="Markers" unique_id=1569718754]
-script = ExtResource("6_d7tnc")
-
-[node name="PacmanSpawnLeft" type="Marker2D" parent="Markers" unique_id=1604657785]
+[node name="PacmanSpawnLeft" parent="Markers" unique_id=783740510 instance=ExtResource("3_xtbws")]
 position = Vector2(112, 320)
 
-[node name="PacmanSpawnRight" type="Marker2D" parent="Markers" unique_id=1513927735]
+[node name="PacmanSpawnRight" parent="Markers" unique_id=1726245285 instance=ExtResource("3_xtbws")]
 position = Vector2(1040, 352)
 
-[node name="GhostSpawn" type="Marker2D" parent="Markers" unique_id=1630855254]
-position = Vector2(536, 136)
+[node name="GhostSpawn" parent="Markers" unique_id=1665272230 instance=ExtResource("3_xtbws")]
+position = Vector2(536, 135)
 
 [connection signal="body_entered" from="WrapTunnels/LeftTrigger" to="." method="_on_left_trigger_body_entered"]
 [connection signal="body_entered" from="WrapTunnels/RightTrigger" to="." method="_on_right_trigger_body_entered"]

@@ -20,16 +20,19 @@ var wanted_direction := Vector2.ZERO
 
 func _ready():
 	randomize()
-
 	sprite.play("move")
-
-	# Random spawn
+	#random spawn
 	if randi() % 2 == 0:
-		current_marker = markers.get_node("PacmanSpawn1")
+		current_marker = markers.get_node("PacmanSpawnLeft") as TurnMarker
 	else:
-		current_marker = markers.get_node("PacmanSpawn2")
-
+		current_marker = markers.get_node("PacmanSpawnRight") as TurnMarker
 	global_position = current_marker.global_position
+	print(current_marker)
+	print(current_marker is TurnMarker)
+	print("UP:", current_marker.up)
+	print("DOWN:", current_marker.down)
+	print("LEFT:", current_marker.left)
+	print("RIGHT:", current_marker.right)
 
 
 func _physics_process(delta):

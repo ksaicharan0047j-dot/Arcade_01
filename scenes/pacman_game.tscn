@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b4hltqyaq7qpj" path="res://scenes/ui/hud.tscn" id="8_fn0hl"]
 
 [node name="PacmanGame" type="Node2D" unique_id=1355961704]
+position = Vector2(-2, 0)
 script = ExtResource("1_khqni")
 
 [node name="Maze" parent="." unique_id=1966717181 instance=ExtResource("2_yg7e2")]
 
 [node name="PacmanPlayer" parent="." unique_id=1597438495 instance=ExtResource("3_r51r3")]
+position = Vector2(112, 319)
 
 [node name="Ghosts" type="Node2D" parent="." unique_id=1189035913]
 

@@ -6,6 +6,8 @@ class_name TurnMarker
 @export var left: TurnMarker
 @export var right: TurnMarker
 
+@export var marker_name := ""
+
 func get_next(dir: Vector2) -> TurnMarker:
 	if dir == Vector2.UP:
 		return up
