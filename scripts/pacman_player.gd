@@ -27,11 +27,11 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		wanted_direction = Vector2.UP
-	elif Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_down"):
 		wanted_direction = Vector2.DOWN
-	elif Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("ui_left"):
 		wanted_direction = Vector2.LEFT
-	elif Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_right"):
 		wanted_direction = Vector2.RIGHT
 	
 	#waiting
@@ -47,6 +47,9 @@ func _physics_process(delta):
 		move_to_target(delta)
 
 func start_moving(next_marker: TurnMarker, new_direction: Vector2):
+	print("FROM: ", current_marker.name,
+			" TO: ", next_marker.name,
+			" DIR: ", new_direction)
 	target_marker = next_marker
 	direction = new_direction
 	state = State.MOVING
@@ -95,3 +98,25 @@ func update_sprite():
 			sprite.rotation_degrees = -90
 		Vector2.DOWN:
 			sprite.rotation_degrees = 90
+
+func wrap_through_tunnel(
+	destination_marker: TurnMarker,
+	destination_position: Vector2
+):
+	#teleport
+	global_position = destination_position
+	#forget the marker
+	current_marker  = destination_marker
+	target_marker = null
+	var next_marker = current_marker.get_next(direction)
+	if next_marker != null:
+		target_marker = next_marker
+		state = State.MOVING
+	else:
+		state = State.WAITING
+		direction = Vector2.ZERO
+	print("Tunnel wrap -> ", current_marker.name)
+	if target_marker != null:
+		print("Next marker -> ", target_marker.name)
+	else:
+		print("Next marker -> NONE")
