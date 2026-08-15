@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cfv68o7voghvv"]
 
 [ext_resource type="Script" uid="uid://b4bhlfcp3gkbr" path="res://scripts/ghost_base.gd" id="1_ikmm6"]
+[ext_resource type="Texture2D" uid="uid://dm6on2wcb7ubk" path="res://sprites/PacManAssets-Ghosts.png" id="2_u2adf"]
 
-[node name="GhostBase" type="Node2D" unique_id=519683498]
+[node name="GhostBase" type="CharacterBody2D" unique_id=1226789244]
 script = ExtResource("1_ikmm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097604544]
+texture = ExtResource("2_u2adf")

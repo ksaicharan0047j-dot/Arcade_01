@@ -689,6 +689,11 @@ position = Vector2(80, 455)
 up = NodePath("../M003")
 down = NodePath("../M004")
 
+[node name="M102" parent="Markers" unique_id=1330302905 node_paths=PackedStringArray("left", "right") instance=ExtResource("3_xtbws")]
+position = Vector2(536, 192)
+left = NodePath("../M025")
+right = NodePath("../M041")
+
 [node name="PacmanSpawnLeft" parent="Markers" unique_id=783740510 node_paths=PackedStringArray("left", "right") instance=ExtResource("3_xtbws")]
 position = Vector2(112, 320)
 left = NodePath("../M093")
@@ -699,8 +704,9 @@ position = Vector2(1040, 352)
 left = NodePath("../M090")
 right = NodePath("../M092")
 
-[node name="GhostSpawn" parent="Markers" unique_id=1665272230 instance=ExtResource("3_xtbws")]
+[node name="GhostSpawn" parent="Markers" unique_id=1665272230 node_paths=PackedStringArray("down") instance=ExtResource("3_xtbws")]
 position = Vector2(536, 135)
+down = NodePath("../M102")
 
 [node name="PowerPellets" type="Node2D" parent="." unique_id=645493677]
 

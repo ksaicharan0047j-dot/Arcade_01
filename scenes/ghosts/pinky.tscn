@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hpjvg8hb6b8r" path="res://scripts/pinky.gd" id="1_7esn6"]
 
-[node name="Pinky" type="Node2D" unique_id=201293043]
+[node name="Pinky" type="CharacterBody2D" unique_id=1707320455]
 script = ExtResource("1_7esn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1327928918]

@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy0egrpaxh3af" path="res://scripts/blinky.gd" id="1_8lv0q"]
 
-[node name="Blinky" type="Node2D" unique_id=441969753]
+[node name="Blinky" type="CharacterBody2D" unique_id=168529432]
 script = ExtResource("1_8lv0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=424914766]
