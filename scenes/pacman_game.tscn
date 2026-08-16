@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyvfb520ernti" path="res://scripts/pacman_game.gd" id="1_khqni"]
 [ext_resource type="PackedScene" uid="uid://p7taeixdw8xd" path="res://scenes/maze/maze.tscn" id="2_yg7e2"]
 [ext_resource type="PackedScene" uid="uid://dq1jkb22xe7v5" path="res://scenes/pacman_player.tscn" id="3_r51r3"]
+[ext_resource type="Script" uid="uid://bapvqivuaoyde" path="res://scripts/ghosts.gd" id="4_8e457"]
 [ext_resource type="PackedScene" uid="uid://ontehmfegnea" path="res://scenes/ghosts/blinky.tscn" id="4_edeki"]
 [ext_resource type="PackedScene" uid="uid://bpibpwqrtif5b" path="res://scenes/ghosts/pinky.tscn" id="5_8e457"]
 [ext_resource type="PackedScene" uid="uid://743tysvvvf4g" path="res://scenes/ghosts/inky.tscn" id="6_hlpqx"]
@@ -21,6 +22,7 @@ script = ExtResource("1_khqni")
 position = Vector2(112, 319)
 
 [node name="Ghosts" type="Node2D" parent="." unique_id=1189035913]
+script = ExtResource("4_8e457")
 
 [node name="Blinky" parent="Ghosts" unique_id=441969753 instance=ExtResource("4_edeki")]
 
