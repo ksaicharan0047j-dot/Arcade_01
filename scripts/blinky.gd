@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED := 105.0
 const LOOK_AHEAD := 90.0
+const TARGET_MIN_DISTANCE := 20.0
 
 enum State {
 	WAITING,
@@ -12,8 +13,8 @@ var state: State = State.WAITING
 
 var current_marker: TurnMarker
 var target_marker: TurnMarker
-var direction := Vector2.DOWN
 
+var direction := Vector2.DOWN
 var released := false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -27,29 +28,26 @@ func _ready():
 
 	var game = get_tree().current_scene
 
+	if game == null:
+		return
+
 	pacman = game.get_node_or_null("PacmanPlayer")
 	markers = game.get_node_or_null("Maze/Markers")
 
-	if pacman == null:
-		print("BLINKY ERROR: PacmanPlayer not found")
-		return
-
 	if markers == null:
-		print("BLINKY ERROR: Markers not found")
 		return
 
 	current_marker = markers.get_node_or_null("GhostSpawn") as TurnMarker
 
 	if current_marker == null:
-		print("BLINKY ERROR: GhostSpawn marker not found")
 		return
 
 	global_position = current_marker.global_position
 
 	state = State.WAITING
+	target_marker = null
+	direction = Vector2.DOWN
 	released = false
-
-	print("BLINKY spawned at GhostSpawn")
 
 
 func release_ghost():
@@ -59,34 +57,36 @@ func release_ghost():
 	if current_marker == null:
 		return
 
-	released = true
-
 	var next_marker = current_marker.get_next(Vector2.DOWN)
 
 	if next_marker == null:
-		print("BLINKY ERROR: GhostSpawn has no DOWN connection")
-		released = false
 		return
 
-	print("BLINKY RELEASED")
+	released = true
+	direction = Vector2.DOWN
 
 	start_moving(next_marker, Vector2.DOWN)
 
 
 func start_moving(next_marker: TurnMarker, new_direction: Vector2):
+	if next_marker == null:
+		state = State.WAITING
+		target_marker = null
+		return
+
 	target_marker = next_marker
 	direction = new_direction
 	state = State.MOVING
-
-	update_sprite()
 
 
 func _physics_process(delta):
 	if not released:
 		return
 
-	if state == State.MOVING:
-		move_to_target(delta)
+	if state != State.MOVING:
+		return
+
+	move_to_target(delta)
 
 
 func move_to_target(delta):
@@ -101,8 +101,8 @@ func move_to_target(delta):
 
 	if global_position.distance_to(target_marker.global_position) <= 0.5:
 		global_position = target_marker.global_position
-
 		current_marker = target_marker
+		target_marker = null
 
 		choose_best_direction()
 
@@ -114,17 +114,17 @@ func choose_best_direction():
 	if pacman == null:
 		return
 
-	var target_position = get_prediction_position()
+	var target_position: Vector2 = get_prediction_position()
 
-	var possible_directions = [
+	var possible_directions := [
 		Vector2.UP,
-		Vector2.DOWN,
 		Vector2.LEFT,
+		Vector2.DOWN,
 		Vector2.RIGHT
 	]
 
 	var best_direction := Vector2.ZERO
-	var best_distance := INF
+	var best_distance: float = INF
 
 	for candidate_direction in possible_directions:
 
@@ -136,7 +136,9 @@ func choose_best_direction():
 		if next_marker == null:
 			continue
 
-		var distance = next_marker.global_position.distance_to(
+		var marker_position: Vector2 = next_marker.global_position
+
+		var distance: float = marker_position.distance_to(
 			target_position
 		)
 
@@ -147,24 +149,32 @@ func choose_best_direction():
 	if best_direction != Vector2.ZERO:
 		var next_marker = current_marker.get_next(best_direction)
 
-		start_moving(
-			next_marker,
-			best_direction
-		)
-	else:
-		var forward_marker = current_marker.get_next(direction)
-
-		if forward_marker != null:
+		if next_marker != null:
 			start_moving(
-				forward_marker,
-				direction
+				next_marker,
+				best_direction
 			)
-		else:
-			state = State.WAITING
+			return
+
+	var reverse_direction := -direction
+	var reverse_marker = current_marker.get_next(reverse_direction)
+
+	if reverse_marker != null:
+		start_moving(
+			reverse_marker,
+			reverse_direction
+		)
+		return
+
+	state = State.WAITING
+	target_marker = null
 
 
 func get_prediction_position() -> Vector2:
-	var prediction_direction = Vector2.ZERO
+	if pacman == null:
+		return global_position
+
+	var prediction_direction := Vector2.ZERO
 
 	if "direction" in pacman:
 		prediction_direction = pacman.direction
@@ -172,21 +182,12 @@ func get_prediction_position() -> Vector2:
 	if prediction_direction == Vector2.ZERO:
 		return pacman.global_position
 
-	return pacman.global_position + (
+	var predicted_position: Vector2 = (
+		pacman.global_position +
 		prediction_direction * LOOK_AHEAD
 	)
 
+	if predicted_position.distance_to(global_position) < TARGET_MIN_DISTANCE:
+		return pacman.global_position
 
-func update_sprite():
-	match direction:
-		Vector2.RIGHT:
-			sprite.rotation_degrees = 0
-
-		Vector2.LEFT:
-			sprite.rotation_degrees = 180
-
-		Vector2.UP:
-			sprite.rotation_degrees = -90
-
-		Vector2.DOWN:
-			sprite.rotation_degrees = 90
+	return predicted_position

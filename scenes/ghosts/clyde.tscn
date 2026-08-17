@@ -1,8 +1,47 @@
 [gd_scene format=3 uid="uid://5k4dcxd4tcxx"]
 
 [ext_resource type="Script" uid="uid://d05n62wlpbbva" path="res://scripts/clyde.gd" id="1_kr3d0"]
+[ext_resource type="Texture2D" uid="uid://dm6on2wcb7ubk" path="res://sprites/PacManAssets-Ghosts.png" id="2_32ghc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pd6n"]
+atlas = ExtResource("2_32ghc")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nhp0"]
+atlas = ExtResource("2_32ghc")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3rtr"]
+atlas = ExtResource("2_32ghc")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awmnt"]
+atlas = ExtResource("2_32ghc")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woppv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pd6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nhp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3rtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awmnt")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
 
 [node name="Clyde" type="CharacterBody2D" unique_id=454255060]
 script = ExtResource("1_kr3d0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1237960275]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863616620]
+sprite_frames = SubResource("SpriteFrames_woppv")
+animation = &"move"
